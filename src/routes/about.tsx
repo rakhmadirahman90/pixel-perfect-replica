@@ -19,7 +19,7 @@ const values = [
 function About() {
   return (
     <>
-      <PageHeader eyebrow="Profil Profesional" title={<>Teknologi, riset, dan <span className="font-serif font-normal italic text-primary">kreativitas.</span></>} intro="Mengenal latar belakang, perjalanan akademik, keahlian, dan pendekatan profesional saya." />
+      <PageHeader eyebrow="Profil Profesional" title={<>Teknologi, riset, dan <span className="font-serif font-normal italic text-primary">kreativitas.</span></>} intro="Profil, pendidikan, keahlian, dan arah riset." />
       <Section>
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12">
           <aside className="space-y-5 lg:sticky lg:top-24">
@@ -46,7 +46,7 @@ function About() {
           <div className="min-w-0 space-y-9">
             <section className="rounded-[1.75rem] border bg-card p-5 sm:p-8">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.18em] text-primary"><Sparkles className="h-4 w-4" /> Tentang Saya</div>
-              <h2 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">Menghubungkan pemikiran teknis dengan solusi kreatif.</h2>
+              <h2 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">Teknologi yang berpadu dengan kreativitas.</h2>
               <p className="mt-5 text-base leading-8 text-foreground/90">{bio[0]} {bio[1]}</p>
               <p className="mt-4 text-sm leading-7 text-muted-foreground">{bio[3]} {bio[5]}</p>
               <p className="mt-4 border-l-2 border-primary pl-4 font-serif text-lg italic leading-relaxed text-foreground/90">{bio[6]}</p>
