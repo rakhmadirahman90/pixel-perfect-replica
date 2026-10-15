@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Menu, Moon, Sun, X, ArrowUpRight } from "lucide-react";
-import { nav, profile } from "@/lib/content";
+import { Menu, Moon, Sun, X, ArrowUpRight, ChevronDown } from "lucide-react";
+import { profile } from "@/lib/content";
 
 export function Monogram() {
   return (
@@ -29,44 +29,68 @@ function ThemeToggle() {
   );
 }
 
+const menuGroups = [
+  { label: "Profil", items: [{ to: "/about", label: "Tentang Saya" }, { to: "/education", label: "Pendidikan" }, { to: "/experience", label: "Pengalaman" }, { to: "/awards", label: "Penghargaan" }] },
+  { label: "Karya & Keahlian", items: [{ to: "/portfolio", label: "Portofolio" }, { to: "/skills", label: "Keahlian" }, { to: "/services", label: "Layanan" }, { to: "/articles", label: "Artikel" }] },
+] as const;
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
   const pathname = useRouterState({ select: (state) => state.location.pathname });
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => { setOpen(false); setExpanded(null); }, [pathname]);
   useEffect(() => {
     if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
+  const close = () => { setOpen(false); setExpanded(null); };
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/85 backdrop-blur-2xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
+    <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-2xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
         <Monogram />
-        <nav className="hidden items-center gap-4 lg:gap-7 lg:flex">
-          {nav.map((n) => (
-            <Link key={n.to} to={n.to} className="text-sm text-muted-foreground transition-colors hover:text-foreground" activeProps={{ className: "text-sm text-foreground" }} activeOptions={{ exact: n.to === "/" }}>
-              {n.label}
-            </Link>
+        <nav aria-label="Navigasi utama" className="hidden items-center gap-6 lg:flex">
+          <Link to="/" className="text-sm text-muted-foreground transition-colors hover:text-foreground" activeProps={{ className: "text-sm font-semibold text-primary" }} activeOptions={{ exact: true }}>Beranda</Link>
+          {menuGroups.map((group) => (
+            <div key={group.label} className="group relative">
+              <button type="button" className="flex items-center gap-1.5 rounded-lg px-2 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground" aria-haspopup="true">
+                {group.label} <ChevronDown className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
+              </button>
+              <div className="invisible absolute left-0 top-full z-50 min-w-56 translate-y-2 rounded-2xl border bg-background p-2 opacity-0 shadow-xl transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                {group.items.map(item => <Link key={item.to} to={item.to} className="block rounded-xl px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground" activeProps={{ className: "bg-primary/10 font-semibold text-primary" }}>{item.label}</Link>)}
+              </div>
+            </div>
           ))}
+          <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground" activeProps={{ className: "text-sm font-semibold text-primary" }}>Kontak</Link>
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link to="/contact" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 lg:inline-flex">
-            Hubungi
-          </Link>
-          <button onClick={() => setOpen(!open)} aria-label={open ? "Tutup menu" : "Buka menu"} aria-controls="mobile-navigation" aria-expanded={open} className="grid h-9 w-9 place-items-center rounded-full border lg:hidden">
+          <Link to="/contact" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 lg:inline-flex">Hubungi</Link>
+          <button type="button" onClick={() => { setOpen(!open); setExpanded(null); }} aria-label={open ? "Tutup menu" : "Buka menu"} aria-controls="mobile-navigation" aria-expanded={open} className="grid h-9 w-9 place-items-center rounded-full border lg:hidden">
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
       {open && (
-        <nav className="animate-in fade-in slide-in-from-top-2 border-t px-5 pb-6 pt-2 md:hidden">
-          {[...nav, { to: "/education", label: "Pendidikan" }, { to: "/skills", label: "Keahlian" }, { to: "/awards", label: "Penghargaan" }, { to: "/contact", label: "Kontak" }].map((n) => (
-            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="flex items-center justify-between border-b py-3.5 font-display text-lg">
-              {n.label} <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
-            </Link>
-          ))}
+        <nav id="mobile-navigation" aria-label="Navigasi seluler" className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t bg-background/95 px-5 pb-5 pt-3 shadow-xl sm:px-6 lg:hidden">
+          <div className="mx-auto max-w-6xl space-y-1">
+            <Link to="/" onClick={close} className="flex items-center justify-between rounded-xl px-3 py-3.5 font-display text-lg font-semibold hover:bg-primary/10" activeProps={{ className: "bg-primary/10 text-primary" }}>Beranda <ArrowUpRight className="h-4 w-4" /></Link>
+            {menuGroups.map(group => {
+              const active = group.items.some(item => item.to === pathname);
+              const isExpanded = expanded === group.label;
+              return <div key={group.label} className="rounded-2xl border border-border/70">
+                <button type="button" aria-expanded={isExpanded} aria-controls={`mobile-group-${group.label === "Profil" ? "profile" : "work"}`} onClick={() => setExpanded(isExpanded ? null : group.label)} className="flex w-full items-center justify-between rounded-2xl px-3 py-3.5 text-left font-display text-lg font-semibold hover:bg-primary/10">
+                  <span>{group.label}{active && <span className="ml-2 text-xs font-medium text-primary">• Aktif</span>}</span>
+                  <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                </button>
+                {isExpanded && <div id={`mobile-group-${group.label === "Profil" ? "profile" : "work"}`} className="grid gap-1 border-t px-2 pb-2 pt-2">
+                  {group.items.map(item => <Link key={item.to} to={item.to} onClick={close} className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-primary/10 hover:text-foreground" activeProps={{ className: "bg-primary/10 font-semibold text-primary" }}>{item.label}<ArrowUpRight className="h-3.5 w-3.5" /></Link>)}
+                </div>}
+              </div>;
+            })}
+            <Link to="/contact" onClick={close} className="flex items-center justify-between rounded-xl bg-primary px-4 py-3.5 font-display text-base font-semibold text-primary-foreground">Hubungi Saya <ArrowUpRight className="h-4 w-4" /></Link>
+          </div>
         </nav>
       )}
     </header>
