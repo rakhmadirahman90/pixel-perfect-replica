@@ -17,7 +17,7 @@ function Skills() {
       <Section>
         <div className="grid gap-4 lg:grid-cols-3">
           {skillGroups.map((g, i) => {
-            const Icon = icons[i];
+            const Icon = icons[i] ?? Palette;
             return (
               <div key={g.title} className="rounded-2xl border bg-card p-7">
                 <Icon className="h-6 w-6 text-primary" />

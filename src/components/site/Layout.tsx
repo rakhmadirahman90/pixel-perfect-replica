@@ -74,7 +74,7 @@ export function Footer() {
           <p className="mt-3 font-serif text-xl italic text-muted-foreground">{profile.tagline}</p>
         </div>
         <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-          {[["/about", "Tentang"], ["/education", "Pendidikan"], ["/experience", "Pengalaman"], ["/skills", "Keahlian"], ["/portfolio", "Portofolio"], ["/awards", "Penghargaan"], ["/services", "Layanan"], ["/contact", "Kontak"]].map(([to, l]) => (
+          {([["/about", "Tentang"], ["/education", "Pendidikan"], ["/experience", "Pengalaman"], ["/skills", "Keahlian"], ["/portfolio", "Portofolio"], ["/awards", "Penghargaan"], ["/services", "Layanan"], ["/contact", "Kontak"]] as const).map(([to, l]) => (
             <Link key={to} to={to} className="hover:text-foreground">{l}</Link>
           ))}
         </div>
