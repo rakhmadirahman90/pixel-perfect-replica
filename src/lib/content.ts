@@ -26,13 +26,13 @@ export const profile = {
 };
 
 export const bio = [
-  "Saya Rakhmadi Rahman, S.T., M.Kom., seorang profesional dengan latar belakang pendidikan Teknik Informatika dan Sistem Informasi Bisnis.",
-  "Saya merupakan dosen Program Studi Sistem Informasi di Institut Teknologi Bacharuddin Jusuf Habibie, Indonesia, dengan fokus riset terapan pada keamanan siber.",
-  "Riset saya mencakup deteksi dan monitoring serangan jaringan, hardening Linux/server, mitigasi brute force, kontrol akses, keamanan web, analisis Wi-Fi publik dan Evil Twin, penetration testing, serta penggunaan defensif perangkat keamanan open source.",
-  "Perjalanan profesional saya mencakup bidang teknologi informasi, pembelajaran dan pengembangan sumber daya manusia, pengajaran teknologi, serta industri kreatif.",
-  "Bidang keahlian akademik saya meliputi Sistem Informasi, Knowledge Management System, Cyber Security, dan Enterprise Architecture.",
-  "Saya memiliki ketertarikan pada pengembangan aplikasi, teknologi digital, desain grafis, dan komunikasi visual. Pengalaman menggunakan berbagai perangkat desain dan teknologi membantu saya menggabungkan pendekatan analitis dengan kreativitas untuk menghasilkan solusi yang aplikatif.",
-  "Bagi saya, teknologi dan desain bukanlah dua bidang yang terpisah, melainkan dua pendekatan yang saling melengkapi dalam menyelesaikan permasalahan dan menciptakan pengalaman digital yang bermakna.",
+  "Saya Rakhmadi Rahman, S.T., M.Kom., dosen Sistem Informasi dengan latar belakang Teknik Informatika dan Sistem Informasi Bisnis.",
+  "Saya mengajar di Institut Teknologi Bacharuddin Jusuf Habibie dan meneliti keamanan siber terapan.",
+  "Fokus riset saya meliputi deteksi serangan jaringan, keamanan server dan web, kontrol akses, serta pengujian keamanan.",
+  "Pengalaman saya mencakup teknologi informasi, pengajaran, pengembangan SDM, dan industri kreatif.",
+  "Keahlian akademik: Sistem Informasi, Knowledge Management, Keamanan Siber, dan Enterprise Architecture.",
+  "Saya menggabungkan pengembangan aplikasi dan desain visual untuk menciptakan solusi digital yang praktis.",
+  "Teknologi dan desain saling melengkapi untuk menghasilkan pengalaman digital yang bermanfaat.",
 ];
 
 export const education = [
@@ -141,12 +141,12 @@ export const portfolioCategories = ["Application Development", "Digital Media", 
 // Only verified & approved projects belong here. The old site's entries were demo content.
 export type Project = { slug: string; title: string; category: string; year: string; summary: string; cover?: string };
 export const projects: Project[] = [
-  { slug: "baznas-parepare", title: "Sistem Transaksi & Pelaporan BAZNAS Kota Parepare", category: "Application Development", year: "2023", summary: "Peran: Application Developer. Pengembangan sistem pencatatan transaksi dan pelaporan untuk BAZNAS Kota Parepare, sebagaimana tercantum dalam CV akademik." },
-  { slug: "kedaireka-mitigasi-gempa", title: "Media Digital Literasi Mitigasi Gempa", category: "Digital Media", year: "2023", summary: "Peran: anggota tim riset kolaboratif Kedaireka. Media digital untuk literasi mitigasi bencana gempa bumi di Sulawesi Barat." },
-  { slug: "gis-kemkominfo", title: "GIS Pemetaan Potensi Kawasan Prioritas", category: "Application Development", year: "2021", summary: "Peran: Tenaga Ahli Informatika. Pengembangan GIS untuk pemetaan potensi kawasan prioritas di Kemkominfo, Indonesia." },
-  { slug: "ar-shohwatul-isad", title: "Media Pembelajaran Interaktif Augmented Reality — Shohwatul Is’Ad", category: "Community Service", year: "2023", summary: "Anggota tim pendampingan pengembangan media pembelajaran interaktif berbasis Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep." },
-  { slug: "google-workspace-sman3", title: "Pelatihan Google Workspace — SMAN 3 Parepare", category: "Community Service", year: "2023", summary: "Anggota tim pengabdian untuk pemanfaatan Google Workspace dalam produktivitas, kolaborasi, dan pembelajaran aktif." },
-  { slug: "microsoft-project-lapadde", title: "Pelatihan Microsoft Project — Kelurahan Lapadde", category: "Community Service", year: "2023", summary: "Anggota tim pelatihan Microsoft Project untuk mendukung perencanaan program kegiatan di Kelurahan Lapadde, Parepare." },
+  { slug: "baznas-parepare", title: "Sistem Transaksi & Pelaporan BAZNAS Kota Parepare", category: "Application Development", year: "2023", summary: "Pengembang aplikasi pencatatan transaksi dan pelaporan BAZNAS Kota Parepare." },
+  { slug: "kedaireka-mitigasi-gempa", title: "Media Digital Literasi Mitigasi Gempa", category: "Digital Media", year: "2023", summary: "Anggota tim Kedaireka yang mengembangkan media literasi mitigasi gempa di Sulawesi Barat." },
+  { slug: "gis-kemkominfo", title: "GIS Pemetaan Potensi Kawasan Prioritas", category: "Application Development", year: "2021", summary: "Tenaga Ahli Informatika dalam pengembangan GIS pemetaan kawasan prioritas Kemkominfo." },
+  { slug: "ar-shohwatul-isad", title: "Media Pembelajaran Interaktif Augmented Reality — Shohwatul Is’Ad", category: "Community Service", year: "2023", summary: "Pendampingan media pembelajaran Augmented Reality di Pesantren Shohwatul Is’Ad, Pangkep." },
+  { slug: "google-workspace-sman3", title: "Pelatihan Google Workspace — SMAN 3 Parepare", category: "Community Service", year: "2023", summary: "Pelatihan Google Workspace untuk produktivitas dan pembelajaran di SMAN 3 Parepare." },
+  { slug: "microsoft-project-lapadde", title: "Pelatihan Microsoft Project — Kelurahan Lapadde", category: "Community Service", year: "2023", summary: "Pelatihan Microsoft Project untuk perencanaan kegiatan di Kelurahan Lapadde." },
 ];
 
 export const research = {
