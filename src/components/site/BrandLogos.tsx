@@ -21,7 +21,7 @@ const skillIcons: Record<string, string> = {
 export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "sm" | "md" | "lg" }) {
   const [failed, setFailed] = useState(false);
   const domain = institutionDomains[name];
-  const letters = name.replace(/\\([^)]*\\)/g, "").split(/\\s+/).filter(Boolean).slice(0, 2).map((word) => word[0]).join("").toUpperCase();
+  const letters = name.replace(/\([^)]*\)/g, "").split(/\s+/).filter(Boolean).slice(0, 2).map((word) => word[0]).join("").toUpperCase();
   const dimensions = size === "lg" ? "h-16 w-16" : size === "sm" ? "h-10 w-10" : "h-12 w-12";
   return <span className={`inline-flex ${dimensions} shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-primary/15 bg-white p-2 shadow-sm dark:bg-white`} title={name} aria-label={name}>
     {domain && !failed
