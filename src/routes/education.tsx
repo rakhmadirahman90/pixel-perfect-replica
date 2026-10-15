@@ -12,7 +12,7 @@ export const Route = createFileRoute("/education")({
 function Education() {
   return (
     <>
-      <PageHeader eyebrow="Pendidikan" title="Tiga jenjang, tiga kali Cumlaude." intro="Fondasi akademik di bidang Informatika dan Sistem Informasi Bisnis." />
+      <PageHeader eyebrow="Pendidikan" title="Riwayat pendidikan formal." intro="Latar belakang pendidikan tinggi di bidang Teknik Informatika dan Sistem Informasi, dilengkapi capaian akademik pada setiap jenjang." />
       <Section>
         <ol className="relative space-y-8 border-l pl-8 md:pl-12">
           {education.map((e, i) => (
