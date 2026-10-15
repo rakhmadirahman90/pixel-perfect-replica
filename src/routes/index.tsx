@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, GraduationCap, Palette, Code2, Users, Trophy } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Palette, Code2, Users } from "lucide-react";
 // Lovable-hosted portrait: use absolute URL because /__l5e assets are not served by Vercel.
 const portraitUrl = "https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lovable.app/__l5e/assets-v1/b89d55e3-b936-45cf-9fe9-a6cfae10c21f/rakhmadi-portrait-updated.png";
-import { profile, education, experience, skillGroups, awards } from "@/lib/content";
+import { profile } from "@/lib/content";
 import { BatikAccent, Section, meta } from "@/components/site/Layout";
-import { InstitutionLogo, SkillLogo } from "@/components/site/BrandLogos";
 import { ProjectVisual } from "@/components/site/VisualCards";
 import { projects } from "@/lib/content";
 
@@ -99,54 +98,14 @@ function Home() {
         <p className="mt-4 text-xs text-muted-foreground">Visualisasi proyek disajikan sebagai ilustrasi representatif.</p>
       </Section>
 
-      {/* Education + Career */}
-      <Section eyebrow="Perjalanan" title="Pendidikan & karier." action={<Link to="/experience" className="text-sm text-primary">Lihat riwayat kerja →</Link>}>
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-2xl border bg-card p-7">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap className="h-4 w-4 text-primary" /> Pendidikan</div>
-            <ul className="mt-6 space-y-6">
-              {education.map((e) => (
-                <li key={e.year} className="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-2 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-3">
-                  <span className="font-display text-primary">{e.year}</span>
-                  <div className="flex min-w-0 items-start gap-2.5 sm:gap-3"><InstitutionLogo name={e.institution} size="sm" /><div className="min-w-0"><p className="font-semibold leading-snug">{e.degree} · {e.program}</p><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{e.institution} — IPK {e.gpa}, {e.distinction}</p></div></div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-2xl border bg-card p-7">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground"><Users className="h-4 w-4 text-primary" /> Karier</div>
-            <ul className="mt-6 space-y-6">
-              {experience.map((e) => (
-                <li key={e.company} className="border-l-2 border-primary/40 pl-4">
-                  <div className="flex items-center gap-2"><InstitutionLogo name={e.company} size="sm" /><p className="font-semibold">{e.company}</p></div>
-                  <p className="text-sm text-muted-foreground">{e.role} · {e.period}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* Perangkat Profesional */}
-      <Section eyebrow="Perangkat Profesional" title="Perangkat kerja." action={<Link to="/skills" className="text-sm text-primary">Semua keahlian →</Link>}>
-        <div className="flex flex-wrap gap-2">
-          {skillGroups.slice(0, 2).flatMap((g) => g.items).map((s) => (
-            <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-card px-3 py-2 text-sm"><SkillLogo name={s} />{s}</span>
-          ))}
-        </div>
-      </Section>
-
-      {/* Awards */}
-      <Section eyebrow="Pencapaian" title="Penghargaan." action={<Link to="/awards" className="text-sm text-primary">Selengkapnya →</Link>}>
+      <Section eyebrow="Jelajahi Profil" title="Temukan informasi yang Anda butuhkan.">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {awards.map((a) => (
-            <div key={a.title + a.year} className="rounded-2xl border bg-card p-6">
-              <Trophy className="h-5 w-5 text-primary" />
-              <p className="mt-6 font-display text-3xl font-bold">{a.year}</p>
-              <p className="mt-2 font-medium">{a.title}</p>
-              <p className="text-sm text-muted-foreground">{a.institution}</p>
-            </div>
-          ))}
+          {[
+            {to:"/education",title:"Pendidikan",desc:"Jenjang dan capaian akademik"},
+            {to:"/experience",title:"Karier",desc:"Peran dan pengalaman kerja"},
+            {to:"/skills",title:"Keahlian",desc:"Kompetensi dan perangkat kerja"},
+            {to:"/awards",title:"Prestasi",desc:"Penghargaan dan hak cipta"}
+          ].map(item=><Link key={item.to} to={item.to} className="group rounded-2xl border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/40"><h3 className="font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted-foreground">{item.desc}</p><ArrowUpRight className="mt-5 h-4 w-4 text-primary"/></Link>)}
         </div>
       </Section>
 
