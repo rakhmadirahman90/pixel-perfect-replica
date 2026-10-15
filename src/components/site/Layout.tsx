@@ -139,12 +139,11 @@ export function Navbar() {
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-border/60">
-      <div className="mx-auto max-w-6xl px-5 py-6 text-center sm:px-6">
+    <footer className="mt-12 border-t border-border/60">
+      <div className="mx-auto max-w-6xl px-5 py-5 text-center sm:px-6">
         <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
           © {new Date().getFullYear()} {profile.name}, {profile.credentials}
         </p>
-        <p className="mt-1 text-xs text-muted-foreground/75">{profile.location}</p>
       </div>
     </footer>
   );
