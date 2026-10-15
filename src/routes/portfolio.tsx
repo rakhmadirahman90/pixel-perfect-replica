@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Search } from "lucide-react";
-import { portfolioCategories, projects } from "@/lib/content";
+import { portfolioCategories, projects, academicActivities } from "@/lib/content";
 import { PageHeader, Section, EmptyState, meta } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
 
@@ -38,6 +38,16 @@ function Portfolio() {
             ))}
           </div>
         )}
+      </Section>
+      <Section eyebrow="Penelitian & Pengabdian" title="Kontribusi akademik.">
+        <p className="mb-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">Kegiatan dari CV akademik dan biodata penelitian. Proyek Kedaireka yang juga tercantum di portofolio tidak dihitung sebagai kegiatan berbeda.</p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {academicActivities.map((item) => <article key={item.title} className="rounded-2xl border bg-card p-5 sm:p-6">
+            <p className="text-xs font-semibold text-primary">{item.year} · {item.role}</p>
+            <h3 className="mt-3 text-lg font-semibold leading-snug">{item.title}</h3>
+            <p className="mt-3 text-sm text-muted-foreground">Sumber pendanaan / program: {item.funding}</p>
+          </article>)}
+        </div>
       </Section>
     </>
   );
