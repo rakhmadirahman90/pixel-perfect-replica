@@ -36,15 +36,15 @@ function Contact() {
     <>
       <PageHeader eyebrow="Let's Connect / Kontak" title={<>Mari wujudkan ide menjadi <span className="font-serif font-normal italic text-primary">kolaborasi nyata.</span></>} intro="Hubungi saya untuk kolaborasi teknologi, riset, dan desain." />
       <Section>
-        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
-          <div className="space-y-5">
+        <div className="grid items-start gap-3 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-4">
+          <div className="space-y-3">
             <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-6 sm:p-8">
               <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl"/>
               <div className="relative">
                 <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary"><Sparkles className="h-3.5 w-3.5"/> Terhubung & Berkolaborasi</span>
-                <h2 className="mt-5 font-display text-2xl font-bold leading-tight sm:text-3xl">Percakapan yang baik adalah awal dari karya yang berarti.</h2>
+                <h2 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">Percakapan yang baik adalah awal dari karya yang berarti.</h2>
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">Terbuka untuk kerja sama sistem informasi, keamanan siber, aplikasi, dan desain.</p>
-                <div className="mt-6 flex flex-wrap gap-2">{["Teknologi", "Riset", "Desain Digital", "Kolaborasi"].map(item=><span key={item} className="rounded-full border bg-background/80 px-3 py-1.5 text-xs font-medium">{item}</span>)}</div>
+                <div className="mt-3 flex flex-wrap gap-2">{["Teknologi", "Riset", "Desain Digital", "Kolaborasi"].map(item=><span key={item} className="rounded-full border bg-background/80 px-3 py-1.5 text-xs font-medium">{item}</span>)}</div>
               </div>
             </div>
             <div className="rounded-2xl border bg-card p-5 sm:p-6">
@@ -66,7 +66,7 @@ function Contact() {
               <h2 className="mt-3 text-2xl font-bold sm:text-3xl">Ceritakan ide Anda.</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Isi formulir untuk membuat draf email.</p>
             </div>
-            <form onSubmit={send} className="space-y-5 p-6 sm:p-8">
+            <form onSubmit={send} className="space-y-3 p-6 sm:p-8">
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="block text-sm font-semibold">Nama lengkap <span className="text-primary">*</span><input autoComplete="name" required minLength={2} maxLength={100} value={form.name} onChange={e=>setForm({...form,name:e.target.value})} placeholder="Nama Anda" className={inputClass}/></label>
                 <label className="block text-sm font-semibold">Alamat email <span className="text-primary">*</span><input type="email" autoComplete="email" required maxLength={254} value={form.email} onChange={e=>setForm({...form,email:e.target.value})} placeholder="nama@email.com" className={inputClass}/></label>
