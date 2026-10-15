@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Trophy } from "lucide-react";
 import { InstitutionLogo } from "@/components/site/BrandLogos";
-import { awards, organizations } from "@/lib/content";
+import { awards, organizations, intellectualProperty } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/awards")({
@@ -22,6 +22,16 @@ function Awards() {
               <Trophy className="hidden h-5 w-5 text-muted-foreground md:block" />
             </div>
           ))}
+        </div>
+      </Section>
+      <Section eyebrow="Hak Cipta" title="Karya tercatat & HKI.">
+        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">Daftar pencatatan hak cipta dari biodata akademik. Nomor dicantumkan sesuai dokumen sumber; status registrasi terkini belum diperiksa secara independen.</p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {intellectualProperty.map((item) => <article key={item.registration} className="rounded-2xl border bg-card p-5 sm:p-6">
+            <p className="text-xs font-semibold tracking-wide text-primary">HAK CIPTA · {item.year}</p>
+            <h3 className="mt-3 text-lg font-semibold leading-snug">{item.title}</h3>
+            <p className="mt-3 break-all text-sm text-muted-foreground">Nomor: {item.registration}</p>
+          </article>)}
         </div>
       </Section>
       <Section eyebrow="Organisasi" title="Pengalaman organisasi.">
