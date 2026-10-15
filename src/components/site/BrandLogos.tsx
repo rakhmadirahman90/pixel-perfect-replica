@@ -14,8 +14,8 @@ const institutions: Record<string, { domain?: string; logo?: string; mark: strin
   "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { logo: "/logos/likmi-high-resolution.png", mark: "LIKMI", short: "STMIK LIKMI" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { logo: "/logos/file_00000000412881f791ab1e4049f3e66a.png", mark: "ST-INTEN", short: "ST-INTEN" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia": { logo: "/logos/file_00000000412881f791ab1e4049f3e66a.png", mark: "ST-INTEN", short: "ST-INTEN" },
-  "Politeknik Pos Indonesia, Bandung": { logo: "https://cdn.annibuku.com/uploads/logo-kampus/3444-universitas-logistik-dan-bisnis-internasional.png", mark: "ULBI", short: "ULBI" },
-  "Politeknik Pos Indonesia": { domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
+  "Politeknik Pos Indonesia, Bandung": { logo: "https://ulbi.ac.id/wp-content/uploads/2025/05/ULBI-Logo-01-scaled.png", mark: "ULBI", short: "ULBI" },
+  "Politeknik Pos Indonesia": { logo: "https://ulbi.ac.id/wp-content/uploads/2025/05/ULBI-Logo-01-scaled.png", domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
 };
 /** Use recognizable full-colour brand marks, with a second source if a CDN icon is unavailable. */
 const skillIcons: Record<string, { primary: string; secondary?: string; kind?: "design" | "security" | "web" | "tool" }> = {
@@ -50,6 +50,8 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
     "Binus Center Bandung": "h-[70%] w-[94%]",
     "PT Astra Daihatsu Motor": "h-[72%] w-[86%]",
     "PT Elnusa Petrofin": "h-[75%] w-[94%]",
+    "Politeknik Pos Indonesia": "h-[82%] w-[82%]",
+    "Politeknik Pos Indonesia, Bandung": "h-[82%] w-[82%]",
   };
   const imageSize = logoScale[name] ?? "h-[85%] w-[85%]";
   // Website favicons often return a generic globe even with HTTP 200.
