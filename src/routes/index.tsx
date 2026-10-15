@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, GraduationCap, Palette, Code2, Users, Trophy } from "lucide-react";
-import portrait from "@/assets/portrait-updated.png.asset.json";
+// Lovable-hosted portrait: use absolute URL because /__l5e assets are not served by Vercel.
+const portraitUrl = "https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lovable.app/__l5e/assets-v1/b89d55e3-b936-45cf-9fe9-a6cfae10c21f/rakhmadi-portrait-updated.png";
 import { profile, education, experience, skillGroups, awards } from "@/lib/content";
 import { Section, meta } from "@/components/site/Layout";
 
@@ -49,7 +50,7 @@ function Home() {
             <div className="absolute -inset-3 rounded-[2rem] border border-dashed" />
             <div className="mask-reveal relative aspect-[4/5] overflow-hidden rounded-[1.75rem] rounded-tr-[6rem] border bg-elevated" style={{ animationDelay: "250ms" }}>
               <div className="absolute inset-0 grid-bg" />
-               <img src={portrait.url} alt="Potret Rakhmadi Rahman" className="absolute inset-0 h-full w-full object-cover object-top" />
+               <img src={portraitUrl} alt="Potret Rakhmadi Rahman" className="absolute inset-0 h-full w-full object-cover object-top" />
             </div>
             <div className="reveal absolute -bottom-5 -left-4 rounded-2xl border bg-card px-4 py-3 shadow-xl" style={{ animationDelay: "700ms" }}>
               <p className="font-display text-2xl font-bold">3×</p>
