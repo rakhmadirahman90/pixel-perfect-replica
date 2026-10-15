@@ -14,7 +14,7 @@ const icons = [Palette, Code2, ShieldCheck, Users];
 function Skills() {
   return (
     <>
-      <PageHeader eyebrow="Keahlian" title="Keahlian dan kompetensi." intro="Kompetensi di bidang teknologi informasi, keamanan siber, komunikasi visual, dan pengembangan profesional." />
+      <PageHeader eyebrow="Keahlian" title="Keahlian dan kompetensi." intro="Keahlian teknologi, keamanan siber, desain, dan kolaborasi." />
       <Section>
         <div className="grid gap-4 md:grid-cols-2">
           {skillGroups.map((g, i) => {
