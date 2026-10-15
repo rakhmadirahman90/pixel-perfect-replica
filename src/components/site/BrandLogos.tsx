@@ -58,9 +58,11 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
   // Only render an explicitly identified institution logo; otherwise use a
   // clear, legible institution wordmark until its authentic emblem is supplied.
   const canShowLogo = Boolean(entry?.logo && !failed);
+  // Vite BASE_URL includes the GitHub Pages repository prefix in production.
+  const logoUrl = entry?.logo?.startsWith("/") ? `${import.meta.env.BASE_URL.replace(/\/$/, "")}${entry.logo}` : entry?.logo;
   return <span className={`inline-flex ${dimensions} shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-white p-0 shadow-sm ring-1 ring-black/5`} title={name} aria-label={name}>
     {canShowLogo
-      ? <img src={entry!.logo} alt={`Logo ${entry!.short}`} className={`block ${imageSize} object-contain`} loading="lazy" decoding="async" onError={() => setFailed(true)} />
+      ? <img src={logoUrl} alt={`Logo ${entry!.short}`} className={`block ${imageSize} object-contain`} loading="lazy" decoding="async" onError={() => setFailed(true)} />
       : <span className={`flex h-full w-full items-center justify-center rounded-lg bg-slate-50 px-0.5 text-center font-display font-extrabold leading-tight tracking-tight text-slate-800 ${initials.length > 8 ? "text-[7px] sm:text-[8px]" : initials.length > 5 ? "text-[8px] sm:text-[9px]" : "text-[11px]"}`} aria-hidden="true">{initials}</span>}
   </span>;
 }
