@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Palette, Code2, Users, ShieldCheck } from "lucide-react";
 import { skillGroups } from "@/lib/content";
+import { SkillLogo } from "@/components/site/BrandLogos";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/skills")({
@@ -24,7 +25,7 @@ function Skills() {
                 <h2 className="mt-6 text-xl font-semibold">{g.title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{g.desc}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {g.items.map((s) => <span key={s} className="rounded-full border bg-background px-3 py-1.5 text-sm transition-colors hover:border-primary/50">{s}</span>)}
+                  {g.items.map((s) => <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-background px-3 py-2 text-sm transition-all hover:border-primary/50 hover:-translate-y-0.5"><SkillLogo name={s} />{s}</span>)}
                 </div>
               </div>
             );
