@@ -16,16 +16,16 @@ function Skills() {
     <>
       <PageHeader eyebrow="Keahlian" title="Keahlian dan kompetensi." intro="Keahlian teknologi, keamanan siber, desain, dan kolaborasi." />
       <Section>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-3 md:grid-cols-2">
           {skillGroups.map((g, i) => {
             const Icon = icons[i] ?? Palette;
             return (
-              <div key={g.title} className="rounded-2xl border bg-card p-7">
+              <div key={g.title} className="rounded-2xl border bg-card p-5">
                 <Icon className="h-6 w-6 text-primary" />
-                <h2 className="mt-6 text-xl font-semibold">{g.title}</h2>
+                <h2 className="mt-3 text-lg font-semibold">{g.title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground">{g.desc}</p>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {g.items.map((s) => <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-background px-3 py-2 text-sm transition-all hover:border-primary/50 hover:-translate-y-0.5"><SkillLogo name={s} />{s}</span>)}
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {g.items.map((s) => <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-background px-2.5 py-1.5 text-sm transition-all hover:border-primary/50 hover:-translate-y-0.5"><SkillLogo name={s} />{s}</span>)}
                 </div>
               </div>
             );
