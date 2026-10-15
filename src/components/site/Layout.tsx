@@ -105,13 +105,13 @@ export function Navbar() {
       {open && (
         <div className="fixed inset-0 z-[60] lg:hidden" role="presentation">
           <button type="button" aria-label="Tutup panel navigasi" onClick={close} className="absolute inset-0 bg-slate-950/65 backdrop-blur-[5px]" />
-          <nav id="mobile-navigation" aria-label="Semua menu" className="absolute inset-x-0 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] mx-auto max-h-[min(76dvh,690px)] max-w-xl overflow-y-auto overscroll-contain rounded-t-[2rem] border border-primary/15 bg-background p-5 pb-6 shadow-2xl sm:rounded-[2rem]">
-            <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-muted-foreground/30" />
-            <div className="mb-5 flex items-start justify-between gap-3">
-              <div><p className="text-xs font-bold uppercase tracking-[.2em] text-primary">Navigasi</p><h2 className="mt-1 font-display text-2xl font-bold">Jelajahi Portofolio</h2><p className="mt-1 text-xs text-muted-foreground">Pilih halaman yang ingin Anda kunjungi.</p></div>
+          <nav id="mobile-navigation" aria-label="Semua menu" className="absolute inset-x-0 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] mx-auto max-h-[calc(100dvh-6.5rem-env(safe-area-inset-bottom))] max-w-xl overflow-y-auto overscroll-contain rounded-t-[1.5rem] border border-primary/15 bg-background px-4 pb-3 pt-3 shadow-2xl sm:rounded-[2rem]">
+            <div className="mx-auto mb-2 h-1 w-12 rounded-full bg-muted-foreground/30" />
+            <div className="mb-3 flex items-center justify-between gap-3">
+              <div><p className="text-[10px] font-bold uppercase tracking-[.16em] text-primary">Navigasi</p><h2 className="font-display text-xl font-bold leading-tight">Jelajahi Portofolio</h2></div>
               <button type="button" onClick={close} aria-label="Tutup menu" className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border bg-card"><X className="h-5 w-5"/></button>
             </div>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-2 gap-2">
               {([
                 { to: "/about", label: "Tentang Saya", icon: UserRound },
                 { to: "/education", label: "Pendidikan", icon: GraduationCap },
@@ -124,12 +124,13 @@ export function Navbar() {
               ] as const).map(item => {
                 const Icon = item.icon;
                 const active = pathname === item.to;
-                return <Link key={item.to} to={item.to} onClick={close} className={`flex min-h-[88px] flex-col items-start justify-between rounded-2xl border p-3.5 transition-all active:scale-[.98] ${active ? "border-primary/45 bg-primary/10 text-primary" : "border-border bg-card hover:border-primary/30 hover:bg-primary/5"}`}>
-                  <Icon className="h-6 w-6" strokeWidth={1.7}/><span className="text-sm font-semibold">{item.label}</span>
+                return <Link key={item.to} to={item.to} onClick={close} className={`flex min-h-[72px] flex-col items-center justify-center gap-1.5 rounded-xl border px-2 py-2 transition-all active:scale-[.98] ${active ? "border-primary/45 bg-primary/10 text-primary" : "border-border bg-card hover:border-primary/30 hover:bg-primary/5"}`}>
+                  <Icon className="h-7 w-7 shrink-0" strokeWidth={1.8}/><span className="text-center text-xs font-semibold leading-tight">{item.label}</span>
                 </Link>;
               })}
             </div>
-            <Link to="/contact" onClick={close} className="mt-4 flex items-center justify-between rounded-2xl bg-primary px-5 py-4 text-sm font-bold text-primary-foreground">Diskusikan Kolaborasi <ArrowUpRight className="h-5 w-5"/></Link>
+            <Link to="/contact" onClick={close} className="mt-3 flex items-center justify-between rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground">Diskusikan Kolaborasi <ArrowUpRight className="h-5 w-5"/></Link>
+            <p className="mt-2 text-center text-[10px] text-muted-foreground">© {new Date().getFullYear()} {profile.name}</p>
           </nav>
         </div>
       )}
