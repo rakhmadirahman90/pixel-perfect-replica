@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { experience, profile, projectAssignments, training } from "@/lib/content";
+import { experience, profile, projectAssignments, training, organizations } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
 import { InstitutionLogo } from "@/components/site/BrandLogos";
@@ -47,6 +47,9 @@ function Experience() {
       </Section>
       <Section eyebrow="Pelatihan" title="Pelatihan dan pengembangan kompetensi.">
         {training.map(item => <article key={item.title} className="rounded-2xl border bg-card p-6"><p className="text-xs font-semibold text-primary">{item.year} · Pelatihan</p><h3 className="mt-2 font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted-foreground">{item.note}</p></article>)}
+      </Section>
+      <Section eyebrow="Organisasi" title="Pengalaman berorganisasi.">
+        <div className="grid gap-4 md:grid-cols-3">{organizations.map(o=><article key={o.name} className="rounded-2xl border bg-card p-5"><h3 className="font-semibold">{o.name}</h3><p className="mt-2 text-sm text-muted-foreground">{o.note}</p></article>)}</div>
       </Section>
     </>
   );
