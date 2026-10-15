@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Layers3, Search, Sparkles, X } from "lucide-react";
-import { portfolioCategories, projects, academicActivities } from "@/lib/content";
+import { ArrowRight, ArrowUpRight, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Layers3, Search, Sparkles, X } from "lucide-react";
+import { portfolioCategories, projects } from "@/lib/content";
 import { PageHeader, Section, EmptyState, meta } from "@/components/site/Layout";
 import { ProjectVisual } from "@/components/site/VisualCards";
 
@@ -33,7 +33,7 @@ function Portfolio() {
         <div className="mb-8 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border bg-card p-5"><Layers3 className="h-5 w-5 text-primary"/><p className="mt-4 text-3xl font-bold tabular-nums">{projects.length}</p><p className="mt-1 text-xs text-muted-foreground">Proyek terdokumentasi</p></div>
           <div className="rounded-2xl border bg-card p-5"><BriefcaseBusiness className="h-5 w-5 text-primary"/><p className="mt-4 text-3xl font-bold tabular-nums">{portfolioCategories.length}</p><p className="mt-1 text-xs text-muted-foreground">Bidang kontribusi</p></div>
-          <div className="rounded-2xl border bg-card p-5"><BookOpen className="h-5 w-5 text-primary"/><p className="mt-4 text-3xl font-bold tabular-nums">{academicActivities.length}</p><p className="mt-1 text-xs text-muted-foreground">Kegiatan akademik tercatat</p></div>
+          <div className="rounded-2xl border bg-card p-5"><BookOpen className="h-5 w-5 text-primary"/><p className="mt-4 text-lg font-bold">Riset & Digital</p><p className="mt-1 text-xs text-muted-foreground">Fokus karya terapan</p></div>
         </div>
         {featured && <div className="group mb-9 overflow-hidden rounded-[1.75rem] border border-primary/20 bg-card shadow-sm lg:grid lg:grid-cols-[1.05fr_1fr]">
           <ProjectVisual slug={featured.slug} title={featured.title} className="!aspect-[16/10] lg:!aspect-auto lg:min-h-[300px]" />
@@ -61,13 +61,6 @@ function Portfolio() {
               <div className="flex flex-1 flex-col p-5 sm:p-6"><div className="flex items-center gap-2 text-xs font-semibold text-primary"><Icon className="h-4 w-4"/>{categoryNames[p.category]??p.category}</div><h3 className="mt-3 text-lg font-bold leading-snug">{p.title}</h3><p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{p.summary}</p><div className="mt-5 flex items-center justify-between border-t pt-4 text-xs text-muted-foreground"><span>Proyek {String(i+1).padStart(2,"0")}</span><span className="inline-flex items-center gap-1 font-medium text-primary">Portofolio <ArrowUpRight className="h-4 w-4"/></span></div></div>
             </article>})}
           </div>}
-      </Section>
-      <Section eyebrow="Riset & Pengabdian" title="Kontribusi akademik dan kolaborasi.">
-        <p className="mb-7 max-w-3xl text-sm leading-7 text-muted-foreground">Kegiatan riset dan pengabdian sesuai riwayat akademik.</p>
-        <div className="grid gap-4 md:grid-cols-2">{academicActivities.map((item,i)=><article key={item.title} className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/35 sm:p-6">
-          <div className="flex items-start justify-between gap-3"><span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">{i%2===0?<BookOpen className="h-5 w-5"/>:<GraduationCap className="h-5 w-5"/>}</span><span className="rounded-full border px-3 py-1 text-xs font-semibold text-muted-foreground">{item.year}</span></div>
-          <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-primary">{item.role}</p><h3 className="mt-2 text-lg font-bold leading-snug">{item.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">Program / institusi: {item.funding}</p>
-        </article>)}</div>
       </Section>
       <Section><div className="flex flex-col items-start justify-between gap-5 rounded-[1.75rem] border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-card p-6 sm:flex-row sm:items-center sm:p-8"><div><p className="text-xs font-bold uppercase tracking-wider text-primary">Kolaborasi</p><h2 className="mt-2 text-xl font-bold sm:text-2xl">Punya ide untuk dikerjakan bersama?</h2><p className="mt-2 text-sm text-muted-foreground">Diskusikan proyek digital, desain, atau riset Anda.</p></div><Link to="/contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">Hubungi Saya <ArrowRight className="h-4 w-4"/></Link></div></Section>
     </>
