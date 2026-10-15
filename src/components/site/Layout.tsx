@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Menu, Moon, Sun, X, ArrowUpRight, ChevronDown } from "lucide-react";
+import { Menu, Moon, Sun, X, ArrowUpRight, ChevronDown, Home, UserRound, BriefcaseBusiness, Mail, GraduationCap, Award, Code2, Wrench, BookOpen, Clock3 } from "lucide-react";
 import { profile } from "@/lib/content";
 
 export function Monogram() {
@@ -41,6 +41,12 @@ export function Navbar() {
   useEffect(() => { setOpen(false); setExpanded(null); }, [pathname]);
   useEffect(() => {
     if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
+  }, [open]);
+  useEffect(() => {
+    if (!open) return;
     const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
@@ -67,31 +73,62 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Link to="/contact" className="hidden rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 lg:inline-flex">Hubungi</Link>
-          <button type="button" onClick={() => { setOpen(!open); setExpanded(null); }} aria-label={open ? "Tutup menu" : "Buka menu"} aria-controls="mobile-navigation" aria-expanded={open} className="grid h-9 w-9 place-items-center rounded-full border lg:hidden">
+          <button type="button" onClick={() => { setOpen(!open); setExpanded(null); }} aria-label={open ? "Tutup menu" : "Buka menu"} aria-controls="mobile-navigation" aria-expanded={open} className="hidden h-10 w-10 place-items-center rounded-xl border lg:hidden">
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
       </div>
+      {/* Native-app-inspired bottom navigation, available on mobile and tablet. */}
+      <nav aria-label="Navigasi cepat seluler" className="fixed inset-x-0 bottom-0 z-[70] border-t border-primary/15 bg-background/95 px-3 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-12px_40px_-22px_rgba(0,0,0,.45)] backdrop-blur-2xl lg:hidden">
+        <div className="mx-auto grid max-w-lg grid-cols-5 gap-1">
+          {([
+            { to: "/", label: "Beranda", icon: Home },
+            { to: "/about", label: "Profil", icon: UserRound },
+            { to: "/portfolio", label: "Karya", icon: BriefcaseBusiness },
+            { to: "/contact", label: "Kontak", icon: Mail },
+          ] as const).slice(0, 3).map(item => {
+            const Icon = item.icon;
+            const active = item.to === "/" ? pathname === "/" : item.to === "/about" ? ["/about","/education","/experience","/awards"].includes(pathname) : ["/portfolio","/skills","/services","/articles"].includes(pathname);
+            return <Link key={item.to} to={item.to} onClick={close} aria-current={active ? "page" : undefined} className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1.5 text-[10px] font-semibold transition-colors ${active ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"}`}>
+              <Icon className="h-[21px] w-[21px]" strokeWidth={active ? 2.3 : 1.8}/><span>{item.label}</span>
+            </Link>;
+          })}
+          <Link to="/contact" onClick={close} aria-current={pathname === "/contact" ? "page" : undefined} className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1.5 text-[10px] font-semibold ${pathname === "/contact" ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-primary/5"}`}><Mail className="h-[21px] w-[21px]" strokeWidth={pathname === "/contact" ? 2.3 : 1.8}/><span>Kontak</span></Link>
+          <button type="button" onClick={() => { setOpen(!open); setExpanded(null); }} aria-label={open ? "Tutup semua menu" : "Lihat semua menu"} aria-controls="mobile-navigation" aria-expanded={open} className={`flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl px-1 py-1.5 text-[10px] font-semibold transition-colors ${open || (pathname !== "/" && pathname !== "/contact" && pathname !== "/about" && pathname !== "/portfolio" && !["/education","/experience","/awards","/skills","/services","/articles"].includes(pathname)) ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-primary/5"}`}>
+            {open ? <X className="h-[21px] w-[21px]"/> : <Menu className="h-[21px] w-[21px]"/>}<span>Menu</span>
+          </button>
+        </div>
+      </nav>
       {open && (
-        <nav id="mobile-navigation" aria-label="Navigasi seluler" className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t bg-background/95 px-5 pb-5 pt-3 shadow-xl sm:px-6 lg:hidden">
-          <div className="mx-auto max-w-6xl space-y-1">
-            <Link to="/" onClick={close} className="flex items-center justify-between rounded-xl px-3 py-3.5 font-display text-lg font-semibold hover:bg-primary/10" activeProps={{ className: "bg-primary/10 text-primary" }}>Beranda <ArrowUpRight className="h-4 w-4" /></Link>
-            {menuGroups.map(group => {
-              const active = group.items.some(item => item.to === pathname);
-              const isExpanded = expanded === group.label;
-              return <div key={group.label} className="rounded-2xl border border-border/70">
-                <button type="button" aria-expanded={isExpanded} aria-controls={`mobile-group-${group.label === "Profil" ? "profile" : "work"}`} onClick={() => setExpanded(isExpanded ? null : group.label)} className="flex w-full items-center justify-between rounded-2xl px-3 py-3.5 text-left font-display text-lg font-semibold hover:bg-primary/10">
-                  <span>{group.label}{active && <span className="ml-2 text-xs font-medium text-primary">• Aktif</span>}</span>
-                  <ChevronDown className={`h-5 w-5 text-muted-foreground transition-transform ${isExpanded ? "rotate-180" : ""}`} />
-                </button>
-                {isExpanded && <div id={`mobile-group-${group.label === "Profil" ? "profile" : "work"}`} className="grid gap-1 border-t px-2 pb-2 pt-2">
-                  {group.items.map(item => <Link key={item.to} to={item.to} onClick={close} className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-primary/10 hover:text-foreground" activeProps={{ className: "bg-primary/10 font-semibold text-primary" }}>{item.label}<ArrowUpRight className="h-3.5 w-3.5" /></Link>)}
-                </div>}
-              </div>;
-            })}
-            <Link to="/contact" onClick={close} className="flex items-center justify-between rounded-xl bg-primary px-4 py-3.5 font-display text-base font-semibold text-primary-foreground">Hubungi Saya <ArrowUpRight className="h-4 w-4" /></Link>
-          </div>
-        </nav>
+        <div className="fixed inset-0 z-[60] lg:hidden" role="presentation">
+          <button type="button" aria-label="Tutup panel navigasi" onClick={close} className="absolute inset-0 bg-slate-950/65 backdrop-blur-[5px]" />
+          <nav id="mobile-navigation" aria-label="Semua menu" className="absolute inset-x-0 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] mx-auto max-h-[min(76dvh,690px)] max-w-xl overflow-y-auto overscroll-contain rounded-t-[2rem] border border-primary/15 bg-background p-5 pb-6 shadow-2xl sm:rounded-[2rem]">
+            <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-muted-foreground/30" />
+            <div className="mb-5 flex items-start justify-between gap-3">
+              <div><p className="text-xs font-bold uppercase tracking-[.2em] text-primary">Navigasi</p><h2 className="mt-1 font-display text-2xl font-bold">Jelajahi Portofolio</h2><p className="mt-1 text-xs text-muted-foreground">Pilih halaman yang ingin Anda kunjungi.</p></div>
+              <button type="button" onClick={close} aria-label="Tutup menu" className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border bg-card"><X className="h-5 w-5"/></button>
+            </div>
+            <div className="grid grid-cols-2 gap-2.5">
+              {([
+                { to: "/about", label: "Tentang Saya", icon: UserRound },
+                { to: "/education", label: "Pendidikan", icon: GraduationCap },
+                { to: "/experience", label: "Pengalaman", icon: Clock3 },
+                { to: "/awards", label: "Penghargaan", icon: Award },
+                { to: "/portfolio", label: "Portofolio", icon: BriefcaseBusiness },
+                { to: "/skills", label: "Keahlian", icon: Code2 },
+                { to: "/services", label: "Layanan", icon: Wrench },
+                { to: "/articles", label: "Publikasi", icon: BookOpen },
+              ] as const).map(item => {
+                const Icon = item.icon;
+                const active = pathname === item.to;
+                return <Link key={item.to} to={item.to} onClick={close} className={`flex min-h-[88px] flex-col items-start justify-between rounded-2xl border p-3.5 transition-all active:scale-[.98] ${active ? "border-primary/45 bg-primary/10 text-primary" : "border-border bg-card hover:border-primary/30 hover:bg-primary/5"}`}>
+                  <Icon className="h-6 w-6" strokeWidth={1.7}/><span className="text-sm font-semibold">{item.label}</span>
+                </Link>;
+              })}
+            </div>
+            <Link to="/contact" onClick={close} className="mt-4 flex items-center justify-between rounded-2xl bg-primary px-5 py-4 text-sm font-bold text-primary-foreground">Diskusikan Kolaborasi <ArrowUpRight className="h-5 w-5"/></Link>
+          </nav>
+        </div>
       )}
     </header>
   );
