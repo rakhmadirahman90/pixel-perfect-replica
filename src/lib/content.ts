@@ -11,6 +11,10 @@ export const profile = {
   institution: "Institut Teknologi Bacharuddin Jusuf Habibie",
   academicEmail: "Rakhmadi.rahman@ith.ac.id",
   academicDepartment: "Jurusan Sains, Program Studi Sistem Informasi",
+  officeAddress: "Jl. Balai Kota No. 1, Parepare",
+  officePhone: "0421 2924000",
+  academicExpertise: ["Sistem Informasi", "Knowledge Management System", "Cyber Security"],
+  sourceCvDate: "06 Desember 2024",
   sintaId: "6824469",
   academicCvUrl: academicCv.url,
   location: "Indonesia",
@@ -77,8 +81,8 @@ export const experience = [
 
 // Penugasan berbasis proyek: jangan dihitung sebagai pekerjaan tetap tanpa bukti kontrak kerja.
 export const projectAssignments = [
-  { company: "BAZNAS Kota Parepare", role: "Application Developer", period: "2023", projectSlug: "baznas-parepare", note: "Pengembangan sistem transaksi dan pelaporan; status hubungan kerja tidak dinyatakan dalam CV." },
-  { company: "Kementerian Komunikasi dan Informatika (Kemkominfo)", role: "Tenaga Ahli Informatika", period: "2021", projectSlug: "gis-kemkominfo", note: "Kontribusi pengembangan GIS; bentuk dan durasi kontrak tidak tercantum." },
+  { company: "BAZNAS Kota Parepare", role: "Application Developer", period: "2023", projectSlug: "baznas-parepare", note: "Aplikasi Pencatatan dan Pelaporan Transaksi Zakat, Infaq dan Sedekah BAZNAS Kota Parepare; peran Pengembang Aplikasi (CV, 2024). Bentuk hubungan kerja tidak dinyatakan." },
+  { company: "Kementerian Komunikasi dan Informatika (Kemkominfo)", role: "Tenaga Ahli Informatika", period: "2021", projectSlug: "gis-kemkominfo", note: "Kajian Penyusunan Sistem Informasi Geografis Potensi Wilayah di Kawasan Prioritas, Kemkominfo Jakarta (CV, 2024). Bentuk dan durasi kontrak tidak tercantum." },
   { company: "Kedaireka — Riset Kolaboratif", role: "Anggota tim riset", period: "2023", projectSlug: "kedaireka-mitigasi-gempa", note: "Proyek kolaboratif, bukan posisi kerja tetap." },
 ];
 
@@ -173,19 +177,32 @@ export const intellectualProperty = [
   { title: "Buku Ajar Pengantar Sistem Informasi", registration: "EC00202357909", year: "2023" },
   { title: "Pengantar Sistem Informasi: Panduan Praktis Pengenalan Sistem Informasi & Penerapannya", registration: "EC00202346198", year: "2023" },
   { title: "Penerapan Sistem Informasi di Berbagai Bidang", registration: "EC00202316797", year: "2023" },
-  { title: "Penerapan & Implementasi Big Data di Berbagai Sektor: Pembangunan Berkelanjutan Era Industri 4.0 dan Society 5.0", registration: "EC002022316797", year: "2023 (tercantum di CV; tahun dalam nomor berbeda)" },
+  { title: "Penerapan & Implementasi Big Data di Berbagai Sektor: Pembangunan Berkelanjutan Era Industri 4.0 dan Society 5.0", registration: "EC002022316797", year: "2023 (tertulis pada CV; nomor registrasi memuat 2022)" },
   { title: "Jaringan Komputer: Teori dan Penerapan Berbagai Bidang", registration: "EC00202420768", year: "2024 (berdasarkan nomor pencatatan)" },
   { title: "Buku Ajar Keamanan Jaringan Komputer", registration: "EC00202433544", year: "2024 (berdasarkan nomor pencatatan)" },
 ];
 
 // Jenis kegiatan dipertahankan agar kegiatan pengabdian tidak dianggap proyek komersial.
 export const academicActivities = [
-  { title: "Riset kolaboratif Kedaireka: komik digital untuk literasi mitigasi gempa Sulawesi Barat", year: "2023", role: "Anggota tim", funding: "Kedaireka" },
-  { title: "Pendampingan media pembelajaran Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
-  { title: "Pelatihan Google Workspace di SMAN 3 Parepare", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
-  { title: "Pelatihan Microsoft Project di Kelurahan Lapadde, Parepare", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
+  { title: "Aplikasi Komik Digital (Webtoon) untuk Meningkatkan Literasi Mitigasi Bencana Gempa Bumi bagi Generasi Muda di Sulawesi Barat Indonesia", year: "2023", role: "Anggota tim", funding: "Kedaireka" },
+  { title: "Pendampingan Pembuatan Media Pembelajaran Interaktif Menggunakan Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad Kabupaten Pangkep", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
+  { title: "Pemanfaatan Google Workspace sebagai Alat Produktivitas dan Kolaborasi dalam Mendukung Pembelajaran Aktif, Inovatif, dan Kreatif di SMAN 3 Parepare", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
+  { title: "Pelatihan Aplikasi Microsoft Project untuk Mendukung Penyusunan Program Kegiatan di Kelurahan Lapadde, Kecamatan Ujung, Kota Parepare", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
 ];
 
+// Dokumen sumber historis bertanggal 06 Desember 2024. Hanya rincian profesional dipublikasikan.
+export const sourceCv = {
+  title: "Biodata Pengusul — Rakhmadi Rahman, S.T., M.Kom.",
+  date: "06 Desember 2024",
+  documentUrl: profile.cvUrl,
+  sections: ["Biodata akademik", "Pendidikan formal", "Pengalaman kepakaran", "Penelitian dan kerja sama", "Publikasi ilmiah", "Hak cipta/HKI"],
+  notes: "CV tahun 2024 merupakan sumber historis; riwayat tambahan dari dokumen lain diberi konteks tersendiri. Nomor identitas dosen dan tanggal lahir tidak ditampilkan di halaman publik.",
+};
+export const institutionalIdentitySources = [
+  { name: "Institut Teknologi Bacharuddin Jusuf Habibie", url: "https://www.ith.ac.id/", note: "Website resmi institusi" },
+  { name: "BAZNAS", url: "https://baznas.go.id/brand", note: "Panduan logo dan identitas resmi; penggunaan mengikuti ketentuan BAZNAS" },
+  { name: "Kementerian Komunikasi dan Informatika", url: "https://jdih.komdigi.go.id/produk_hukum/kategori?page=11", note: "Arsip kebijakan logo kementerian pada periode historis" },
+];
 export type Article = { slug: string; title: string; category: string; date: string; excerpt: string };
 export const articles: Article[] = [];
 
