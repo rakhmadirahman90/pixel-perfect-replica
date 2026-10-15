@@ -27,7 +27,7 @@ function Home() {
         <div className="glow pointer-events-none absolute -right-40 top-10 h-[36rem] w-[36rem]" />
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:px-6 md:grid-cols-[1.15fr_1fr] md:gap-14 md:pt-20">
           <div>
-            <p className="eyebrow reveal">Hello, I'm Rakhmadi Rahman</p>
+            <p className="eyebrow reveal">RAKHMADI RAHMAN · PORTOFOLIO PROFESIONAL</p>
             <h1 className="reveal mt-5 text-[clamp(2.3rem,8vw,4.5rem)] font-bold leading-[1.07] tracking-tight lg:text-7xl" style={{ animationDelay: "100ms" }}>
               Building digital experiences through{" "}
               <span className="font-serif font-normal italic text-primary">technology</span> &amp; creativity.
@@ -57,7 +57,7 @@ function Home() {
             </div>
             <div className="reveal absolute bottom-0 left-0 rounded-2xl border bg-card px-4 py-3 shadow-xl" style={{ animationDelay: "700ms" }}>
               <p className="font-display text-2xl font-bold">3×</p>
-              <p className="text-xs text-muted-foreground">Lulusan Cumlaude</p>
+              <p className="text-xs text-muted-foreground">Lulusan dengan Predikat Cum Laude</p>
             </div>
             <p className="absolute right-1 top-6 hidden rotate-90 origin-right sm:block font-display text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">S.T., M.Kom.</p>
           </div>
@@ -72,7 +72,7 @@ function Home() {
       </Section>
 
       {/* Expertise */}
-      <Section eyebrow="Keahlian Utama" title="Tiga disiplin, satu pendekatan.">
+      <Section eyebrow="Keahlian Utama" title="Keahlian lintas disiplin untuk solusi digital.">
         <div className="grid gap-4 md:grid-cols-3">
           {expertise.map(({ icon: Icon, title, text }, i) => (
             <div key={title} className="group rounded-2xl border bg-card p-5 sm:p-7 transition-all hover:-translate-y-1 hover:border-primary/40">
@@ -88,18 +88,18 @@ function Home() {
       </Section>
 
       {/* Selected visual work */}
-      <Section eyebrow="Featured Work" title="Proyek & kontribusi pilihan." action={<Link to="/portfolio" className="text-sm text-primary">Lihat semua proyek →</Link>}>
+      <Section eyebrow="Portofolio Unggulan" title="Proyek dan kontribusi profesional." action={<Link to="/portfolio" className="text-sm text-primary">Lihat semua proyek →</Link>}>
         <div className="grid gap-5 md:grid-cols-3">
           {projects.slice(0, 3).map(p => <Link key={p.slug} to="/portfolio" className="group overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
             <ProjectVisual slug={p.slug} title={p.title} />
             <div className="p-5"><p className="text-xs font-semibold text-primary">{p.category} · {p.year}</p><h3 className="mt-2 text-lg font-semibold leading-snug">{p.title}</h3><p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{p.summary}</p></div>
           </Link>)}
         </div>
-        <p className="mt-4 text-xs text-muted-foreground">Visual proyek adalah ilustrasi konseptual, bukan dokumentasi proyek asli.</p>
+        <p className="mt-4 text-xs text-muted-foreground">Visualisasi proyek disajikan sebagai ilustrasi representatif.</p>
       </Section>
 
       {/* Education + Career */}
-      <Section eyebrow="Perjalanan" title="Pendidikan & riwayat kerja." action={<Link to="/experience" className="text-sm text-primary">Lihat riwayat kerja →</Link>}>
+      <Section eyebrow="Perjalanan" title="Pendidikan dan pengalaman profesional." action={<Link to="/experience" className="text-sm text-primary">Lihat riwayat kerja →</Link>}>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border bg-card p-7">
             <div className="flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap className="h-4 w-4 text-primary" /> Pendidikan</div>
@@ -126,8 +126,8 @@ function Home() {
         </div>
       </Section>
 
-      {/* Tools */}
-      <Section eyebrow="Tools" title="Perangkat yang saya gunakan." action={<Link to="/skills" className="text-sm text-primary">Semua keahlian →</Link>}>
+      {/* Perangkat Profesional */}
+      <Section eyebrow="Perangkat Profesional" title="Teknologi dan perangkat kerja." action={<Link to="/skills" className="text-sm text-primary">Semua keahlian →</Link>}>
         <div className="flex flex-wrap gap-2">
           {skillGroups.slice(0, 2).flatMap((g) => g.items).map((s) => (
             <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-card px-3 py-2 text-sm"><SkillLogo name={s} />{s}</span>
@@ -154,7 +154,7 @@ function Home() {
         <div className="relative overflow-hidden rounded-3xl border bg-card p-10 md:p-16 grid-bg">
           <div className="glow pointer-events-none absolute -bottom-40 -right-20 h-96 w-96" />
           <p className="eyebrow">Kolaborasi</p>
-          <h2 className="mt-4 max-w-2xl text-3xl font-bold md:text-5xl">Punya ide? Mari wujudkan <span className="font-serif font-normal italic text-primary">bersama</span>.</h2>
+          <h2 className="mt-4 max-w-2xl text-3xl font-bold md:text-5xl">Wujudkan kolaborasi yang berdampak <span className="font-serif font-normal italic text-primary">bersama</span>.</h2>
           <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">Mulai percakapan <ArrowUpRight className="h-4 w-4" /></Link>
         </div>
       </section>
