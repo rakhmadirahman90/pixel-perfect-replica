@@ -139,18 +139,12 @@ export function Navbar() {
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
-        <div>
-          <Monogram />
-          <p className="mt-3 font-serif text-xl italic text-muted-foreground">{profile.tagline}</p>
-        </div>
-        <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-          {([["/about", "Tentang"], ["/education", "Pendidikan"], ["/experience", "Pengalaman"], ["/skills", "Keahlian"], ["/portfolio", "Portofolio"], ["/awards", "Penghargaan"], ["/services", "Layanan"], ["/contact", "Kontak"]] as const).map(([to, l]) => (
-            <Link key={to} to={to} className="hover:text-foreground">{l}</Link>
-          ))}
-        </div>
-        <p className="text-sm text-muted-foreground md:text-right">© {new Date().getFullYear()} {profile.name}, {profile.credentials}<br />{profile.location}</p>
+    <footer className="mt-16 border-t border-border/60">
+      <div className="mx-auto max-w-6xl px-5 py-6 text-center sm:px-6">
+        <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+          © {new Date().getFullYear()} {profile.name}, {profile.credentials}
+        </p>
+        <p className="mt-1 text-xs text-muted-foreground/75">{profile.location}</p>
       </div>
     </footer>
   );
