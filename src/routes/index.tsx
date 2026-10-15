@@ -14,9 +14,9 @@ export const Route = createFileRoute("/")({
 });
 
 const expertise = [
-  { icon: Code2, title: "Teknologi & Web", text: "Pengembangan web dan aplikasi dengan fondasi Informatika." },
-  { icon: Palette, title: "Desain Kreatif", text: "Desain grafis, komunikasi visual, dan konten digital." },
-  { icon: Users, title: "Learning & Development", text: "Pelatihan, pengembangan kompetensi, dan knowledge management." },
+  { icon: Code2, title: "Teknologi & Web", text: "Pengembangan aplikasi dan website." },
+  { icon: Palette, title: "Desain Kreatif", text: "Desain visual dan konten digital." },
+  { icon: Users, title: "Learning & Development", text: "Pelatihan, kompetensi, dan manajemen pengetahuan." },
 ];
 
 function Home() {
@@ -42,7 +42,7 @@ function Home() {
               </span>
             </div>
             <p className="reveal mt-6 max-w-xl text-muted-foreground" style={{ animationDelay: "300ms" }}>
-               Saya adalah dosen Sistem Informasi di Institut Teknologi Bacharuddin Jusuf Habibie dan peneliti keamanan siber, dengan pengalaman di bidang teknologi informasi, desain kreatif, serta pembelajaran dan pengembangan SDM.
+               Dosen Sistem Informasi dan peneliti keamanan siber yang memadukan teknologi, desain, serta pengembangan SDM.
             </p>
             <div className="reveal mt-8 flex flex-wrap items-center gap-3" style={{ animationDelay: "400ms" }}>
               <Link to="/portfolio" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">Jelajahi Portofolio <ArrowRight className="h-4 w-4" /></Link>
@@ -68,12 +68,12 @@ function Home() {
       {/* Intro */}
       <Section eyebrow="Perkenalan">
         <p className="max-w-4xl font-display text-2xl leading-snug md:text-4xl">
-          Teknologi dan desain bukanlah dua bidang yang terpisah — <span className="font-serif italic text-primary">melainkan dua pendekatan</span> yang saling melengkapi untuk menciptakan pengalaman digital yang bermakna.
+          Teknologi dan desain saling melengkapi — <span className="font-serif italic text-primary">melainkan dua pendekatan</span> untuk menciptakan solusi digital yang bermanfaat.
         </p>
       </Section>
 
       {/* Expertise */}
-      <Section eyebrow="Keahlian Utama" title="Keahlian lintas disiplin untuk solusi digital.">
+      <Section eyebrow="Keahlian Utama" title="Keahlian untuk solusi digital.">
         <div className="grid gap-4 md:grid-cols-3">
           {expertise.map(({ icon: Icon, title, text }, i) => (
             <div key={title} className="group rounded-2xl border bg-card p-5 sm:p-7 transition-all hover:-translate-y-1 hover:border-primary/40">
@@ -89,7 +89,7 @@ function Home() {
       </Section>
 
       {/* Selected visual work */}
-      <Section eyebrow="Portofolio Unggulan" title="Proyek dan kontribusi profesional." action={<Link to="/portfolio" className="text-sm text-primary">Lihat semua proyek →</Link>}>
+      <Section eyebrow="Portofolio Unggulan" title="Proyek pilihan." action={<Link to="/portfolio" className="text-sm text-primary">Lihat semua proyek →</Link>}>
         <div className="grid gap-5 md:grid-cols-3">
           {projects.slice(0, 3).map(p => <Link key={p.slug} to="/portfolio" className="group overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
             <ProjectVisual slug={p.slug} title={p.title} />
@@ -100,7 +100,7 @@ function Home() {
       </Section>
 
       {/* Education + Career */}
-      <Section eyebrow="Perjalanan" title="Pendidikan dan pengalaman profesional." action={<Link to="/experience" className="text-sm text-primary">Lihat riwayat kerja →</Link>}>
+      <Section eyebrow="Perjalanan" title="Pendidikan & karier." action={<Link to="/experience" className="text-sm text-primary">Lihat riwayat kerja →</Link>}>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border bg-card p-7">
             <div className="flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap className="h-4 w-4 text-primary" /> Pendidikan</div>
@@ -128,7 +128,7 @@ function Home() {
       </Section>
 
       {/* Perangkat Profesional */}
-      <Section eyebrow="Perangkat Profesional" title="Teknologi dan perangkat kerja." action={<Link to="/skills" className="text-sm text-primary">Semua keahlian →</Link>}>
+      <Section eyebrow="Perangkat Profesional" title="Perangkat kerja." action={<Link to="/skills" className="text-sm text-primary">Semua keahlian →</Link>}>
         <div className="flex flex-wrap gap-2">
           {skillGroups.slice(0, 2).flatMap((g) => g.items).map((s) => (
             <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-card px-3 py-2 text-sm"><SkillLogo name={s} />{s}</span>
