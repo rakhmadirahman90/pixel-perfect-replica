@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -87,13 +88,15 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const isHome = pathname === "/" || pathname === "/pixel-perfect-replica/";
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
       <main className="overflow-x-hidden">
         <Outlet />
       </main>
-      <Footer />
+      {!isHome && <Footer />}
     </QueryClientProvider>
   );
 }
