@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { GraduationCap } from "lucide-react";
+import { InstitutionLogo } from "@/components/site/BrandLogos";
 import { education } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 
@@ -23,7 +24,7 @@ function Education() {
                   <span className="rounded-full border px-3 py-1 text-xs">{e.distinction}</span>
                 </div>
                 <h2 className="mt-4 text-2xl font-semibold">{e.degree} — {e.program}</h2>
-                <p className="mt-1 text-muted-foreground">{e.institution}</p>
+                <div className="mt-4 flex items-center gap-3"><InstitutionLogo name={e.institution} /><p className="text-muted-foreground">{e.institution}</p></div>
                 <p className="mt-4 text-sm">IPK <span className="font-display font-semibold">{e.gpa}</span></p>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{e.detail}</p>
               </div>
