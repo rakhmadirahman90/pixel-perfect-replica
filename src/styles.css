@@ -224,3 +224,9 @@
 @media (max-width: 767px) {
   body { background-attachment: scroll; }
 }
+
+/* Reserve safe space for persistent mobile app navigation. */
+@media (max-width: 1023px) {
+  body { padding-bottom: calc(5.2rem + env(safe-area-inset-bottom)); }
+  footer { margin-bottom: 0; }
+}
