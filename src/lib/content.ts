@@ -9,6 +9,8 @@ export const profile = {
   taglineId: "Menghubungkan Teknologi, Kreativitas, dan Inovasi.",
   roles: ["Lecturer · Information Systems", "Cybersecurity Researcher", "IT Professional", "Creative Designer", "L&D Practitioner"],
   institution: "Institut Teknologi Bacharuddin Jusuf Habibie",
+  academicEmail: "Rakhmadi.rahman@ith.ac.id",
+  academicDepartment: "Jurusan Sains, Program Studi Sistem Informasi",
   sintaId: "6824469",
   academicCvUrl: academicCv.url,
   location: "Indonesia",
@@ -24,6 +26,7 @@ export const bio = [
   "Saya merupakan dosen Program Studi Sistem Informasi di Institut Teknologi Bacharuddin Jusuf Habibie, Indonesia, dengan fokus riset terapan pada keamanan siber.",
   "Riset saya mencakup deteksi dan monitoring serangan jaringan, hardening Linux/server, mitigasi brute force, kontrol akses, keamanan web, analisis Wi-Fi publik dan Evil Twin, penetration testing, serta penggunaan defensif perangkat keamanan open source.",
   "Perjalanan profesional saya mencakup bidang teknologi informasi, pembelajaran dan pengembangan sumber daya manusia, pengajaran teknologi, serta industri kreatif.",
+  "Bidang keahlian akademik saya meliputi Sistem Informasi, Knowledge Management System, Cyber Security, dan Enterprise Architecture.",
   "Saya memiliki ketertarikan pada pengembangan aplikasi, teknologi digital, desain grafis, dan komunikasi visual. Pengalaman menggunakan berbagai perangkat desain dan teknologi membantu saya menggabungkan pendekatan analitis dengan kreativitas untuk menghasilkan solusi yang aplikatif.",
   "Bagi saya, teknologi dan desain bukanlah dua bidang yang terpisah, melainkan dua pendekatan yang saling melengkapi dalam menyelesaikan permasalahan dan menciptakan pengalaman digital yang bermakna.",
 ];
@@ -47,7 +50,7 @@ export const experience = [
     company: "BAZNAS Kota Parepare",
     role: "Application Developer",
     period: "2023",
-    points: ["Pengembangan sistem pencatatan transaksi dan pelaporan"],
+    points: ["Pengembangan sistem pencatatan dan pelaporan transaksi zakat, infak, dan sedekah"],
   },
   {
     company: "Kedaireka — Riset Kolaboratif",
@@ -144,6 +147,9 @@ export const projects: Project[] = [
   { slug: "baznas-parepare", title: "Sistem Transaksi & Pelaporan BAZNAS Kota Parepare", category: "Application Development", year: "2023", summary: "Peran: Application Developer. Pengembangan sistem pencatatan transaksi dan pelaporan untuk BAZNAS Kota Parepare, sebagaimana tercantum dalam CV akademik." },
   { slug: "kedaireka-mitigasi-gempa", title: "Media Digital Literasi Mitigasi Gempa", category: "Digital Media", year: "2023", summary: "Peran: anggota tim riset kolaboratif Kedaireka. Media digital untuk literasi mitigasi bencana gempa bumi di Sulawesi Barat." },
   { slug: "gis-kemkominfo", title: "GIS Pemetaan Potensi Kawasan Prioritas", category: "Application Development", year: "2021", summary: "Peran: Tenaga Ahli Informatika. Pengembangan GIS untuk pemetaan potensi kawasan prioritas di Kemkominfo, Indonesia." },
+  { slug: "ar-shohwatul-isad", title: "Media Pembelajaran Interaktif Augmented Reality — Shohwatul Is’Ad", category: "Digital Media", year: "2023", summary: "Anggota tim pendampingan pengembangan media pembelajaran interaktif berbasis Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep." },
+  { slug: "google-workspace-sman3", title: "Pelatihan Google Workspace — SMAN 3 Parepare", category: "Digital Media", year: "2023", summary: "Anggota tim pengabdian untuk pemanfaatan Google Workspace dalam produktivitas, kolaborasi, dan pembelajaran aktif." },
+  { slug: "microsoft-project-lapadde", title: "Pelatihan Microsoft Project — Kelurahan Lapadde", category: "Digital Media", year: "2023", summary: "Anggota tim pelatihan Microsoft Project untuk mendukung perencanaan program kegiatan di Kelurahan Lapadde, Parepare." },
 ];
 
 export const research = {
@@ -155,7 +161,7 @@ export const research = {
 
 export const publications = [
   { title: "Analisis Keamanan Jaringan Wi-Fi Publik terhadap Serangan Evil Twin", authors: "Rahman, R., Ramli, N., & Rahmadani, A. P.", year: "2026", category: "Keamanan Siber", journal: "Jurnal Riset Sistem Informasi, 3(2), 35–38", doi: "" },
-  { title: "Implementasi Sistem Monitoring Keamanan Jaringan Menggunakan Log Analysis", authors: "Rahman, R., Sairah, A. N., & Heryanti, A. P.", year: "2026", category: "Keamanan Siber", journal: "Jurnal Riset Sistem Informasi, 3(2), 30–34", doi: "10.69714/fgg13p25" },
+  { title: "Implementasi Sistem Monitoring Keamanan Jaringan Menggunakan Log Analysis", authors: "Rahman, R., Sairah, A. N., & Heryanti, A. P.", year: "2026", category: "Keamanan Siber", journal: "Jurnal Riset Sistem Informasi, 3(2), 30–34", doi: "10.69714/fqg13p25" },
   { title: "Implementasi Hardening Server Linux untuk Mengurangi Risiko Serangan Siber", authors: "Rahman, R., Farel, M., & Sopan, M. D.", year: "2026", category: "Keamanan Siber", journal: "Jurnal Riset Sistem Informasi, 3(2), 39–44", doi: "10.69714/c4atnn70" },
   { title: "Analisis Keamanan File Server Berbasis Linux terhadap Akses Tidak Sah", authors: "Rahman, R., Nurfaida, N., & Rusmin, M. H.", year: "2026", category: "Keamanan Siber", journal: "Jurnal Riset Sistem Informasi, 3(2), 58–62", doi: "10.69714/38pr8578" },
   { title: "Penerapan Access Control List (ACL) dalam Pengamanan Jaringan Komputer", authors: "Rahman, R., R., M., & Anwar, W.", year: "2026", category: "Keamanan Siber", journal: "Jurnal Riset Sistem Informasi, 3(2), 1–3", doi: "10.69714/tjzsbn24" },
@@ -166,6 +172,24 @@ export const publications = [
   { title: "Enterprise Resource Planning Using TOGAF Architecture Development Method as a Corporate Development Strategy at Institut Teknologi Bacharuddin Jusuf Habibie", authors: "Rahman, R.", year: "2023", category: "Sistem Informasi", journal: "Jurnal Ilmiah Sains Teknologi dan Informasi, 1(2), 33–49", doi: "" },
   { title: "SMART Integrated Leadership (SMILE) for Smart City", authors: "Rahman, R., & Widianto, S. R.", year: "2020", category: "Sistem Informasi", journal: "Jurnal Mantik, 4(3), 1818–1824", doi: "" },
   { title: "Enterprise Architecture Blending Cycle", authors: "Rahman, R., Kulsum, L. K., M. Yahtadi, & Widianto, S. R.", year: "2020", category: "Sistem Informasi", journal: "Jurnal Mantik, 4(3), 1825–1830", doi: "" },
+];
+
+// Hak cipta/HKI dari biodata penelitian; ditampilkan sebagai daftar unik berdasarkan nomor pencatatan.
+export const intellectualProperty = [
+  { title: "Desain Pembuatan Media Pembelajaran Interaktif dengan Class Point AI di UPTD SD 62 Parepare", registration: "EC002023123359", year: "2023" },
+  { title: "Buku Ajar Pengantar Sistem Informasi", registration: "EC00202357909", year: "2023" },
+  { title: "Pengantar Sistem Informasi: Panduan Praktis Pengenalan Sistem Informasi & Penerapannya", registration: "EC00202346198", year: "2023" },
+  { title: "Penerapan Sistem Informasi di Berbagai Bidang", registration: "EC00202316797", year: "2023" },
+  { title: "Penerapan & Implementasi Big Data di Berbagai Sektor: Pembangunan Berkelanjutan Era Industri 4.0 dan Society 5.0", registration: "EC002022316797", year: "2023 (tercantum di CV; tahun dalam nomor berbeda)" },
+  { title: "Jaringan Komputer: Teori dan Penerapan Berbagai Bidang", registration: "EC00202420768", year: "2024 (berdasarkan nomor pencatatan)" },
+  { title: "Buku Ajar Keamanan Jaringan Komputer", registration: "EC00202433544", year: "2024 (berdasarkan nomor pencatatan)" },
+];
+
+export const academicActivities = [
+  { title: "Riset kolaboratif Kedaireka: komik digital untuk literasi mitigasi gempa Sulawesi Barat", year: "2023", role: "Anggota tim", funding: "Kedaireka" },
+  { title: "Pendampingan media pembelajaran Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
+  { title: "Pelatihan Google Workspace di SMAN 3 Parepare", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
+  { title: "Pelatihan Microsoft Project di Kelurahan Lapadde, Parepare", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
 ];
 
 export type Article = { slug: string; title: string; category: string; date: string; excerpt: string };
