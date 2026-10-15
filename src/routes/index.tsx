@@ -22,10 +22,10 @@ function Home() {
       {/* Hero */}
       <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden grid-bg">
         <div className="glow pointer-events-none absolute -right-40 top-10 h-[36rem] w-[36rem]" />
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-12 md:grid-cols-[1.25fr_1fr] md:pt-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:px-6 md:grid-cols-[1.15fr_1fr] md:gap-14 md:pt-20">
           <div>
             <p className="eyebrow reveal">Hello, I'm Rakhmadi Rahman</p>
-            <h1 className="reveal mt-5 text-[2.6rem] font-bold leading-[1.02] sm:text-6xl lg:text-7xl" style={{ animationDelay: "100ms" }}>
+            <h1 className="reveal mt-5 text-[clamp(2.3rem,8vw,4.5rem)] font-bold leading-[1.07] tracking-tight lg:text-7xl" style={{ animationDelay: "100ms" }}>
               Building digital experiences through{" "}
               <span className="font-serif font-normal italic text-primary">technology</span> &amp; creativity.
             </h1>
@@ -40,23 +40,23 @@ function Home() {
             <p className="reveal mt-6 max-w-xl text-muted-foreground" style={{ animationDelay: "300ms" }}>
                Saya adalah dosen Sistem Informasi di Institut Teknologi Bacharuddin Jusuf Habibie dan peneliti keamanan siber, dengan pengalaman di bidang teknologi informasi, desain kreatif, serta pembelajaran dan pengembangan SDM.
             </p>
-            <div className="reveal mt-8 flex flex-wrap gap-3" style={{ animationDelay: "400ms" }}>
+            <div className="reveal mt-8 flex flex-wrap items-center gap-3" style={{ animationDelay: "400ms" }}>
               <Link to="/portfolio" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">Jelajahi Portofolio <ArrowRight className="h-4 w-4" /></Link>
               <Link to="/about" className="inline-flex items-center rounded-full border px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary">Tentang Saya</Link>
               <Link to="/contact" className="inline-flex items-center px-3 py-3 text-sm font-medium text-muted-foreground hover:text-foreground">Hubungi Saya →</Link>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-sm">
+          <div className="relative mx-auto w-full max-w-[min(100%,25rem)] px-1 pb-6 sm:px-3">
             <div className="absolute -inset-3 rounded-[2rem] border border-dashed" />
-            <div className="mask-reveal relative aspect-[4/5] overflow-hidden rounded-[1.75rem] rounded-tr-[6rem] border bg-elevated" style={{ animationDelay: "250ms" }}>
+            <div className="mask-reveal relative aspect-[4/5] overflow-hidden rounded-[1.75rem] rounded-tr-[5rem] border bg-elevated shadow-2xl shadow-primary/10" style={{ animationDelay: "250ms" }}>
               <div className="absolute inset-0 grid-bg" />
                <img src={portraitUrl} alt="Potret Rakhmadi Rahman" className="absolute inset-0 h-full w-full object-cover object-top" />
             </div>
-            <div className="reveal absolute -bottom-5 -left-4 rounded-2xl border bg-card px-4 py-3 shadow-xl" style={{ animationDelay: "700ms" }}>
+            <div className="reveal absolute bottom-0 left-0 rounded-2xl border bg-card px-4 py-3 shadow-xl" style={{ animationDelay: "700ms" }}>
               <p className="font-display text-2xl font-bold">3×</p>
               <p className="text-xs text-muted-foreground">Lulusan Cumlaude</p>
             </div>
-            <p className="absolute -right-2 top-6 rotate-90 origin-right font-display text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">S.T., M.Kom.</p>
+            <p className="absolute right-1 top-6 hidden rotate-90 origin-right sm:block font-display text-[0.65rem] uppercase tracking-[0.3em] text-muted-foreground">S.T., M.Kom.</p>
           </div>
         </div>
       </section>
