@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowRight, ArrowUpRight, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Layers3, Search, Sparkles, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, CheckCircle2, Code2, GraduationCap, Layers3, Search, Sparkles, X } from "lucide-react";
 import { portfolioCategories, projects } from "@/lib/content";
 import { PageHeader, Section, EmptyState, meta } from "@/components/site/Layout";
 import { ProjectVisual } from "@/components/site/VisualCards";
