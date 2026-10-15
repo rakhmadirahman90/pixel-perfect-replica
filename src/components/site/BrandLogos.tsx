@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Code2, Globe2, Palette, ShieldCheck, Wrench } from "lucide-react";
+import { Code2, Globe2, Palette, ShieldCheck, Wrench, GraduationCap, BrainCircuit, MessagesSquare, Lightbulb, FlaskConical, Crown, UsersRound, Presentation, Clapperboard, Network, ScrollText, ServerCog, ShieldAlert, LockKeyhole, ShieldCheck as ShieldAccess, Wifi, ScanSearch, Terminal, MonitorSmartphone, Laptop } from "lucide-react";
 
 /** Show only recognizable brand marks; unknown/legacy schools use a clear typographic emblem, never a generic globe favicon. */
 const institutions: Record<string, { domain?: string; logo?: string; mark: string; short: string }> = {
@@ -55,15 +55,39 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
   </span>;
 }
 
+const competencyIcons = {
+  "Learning & Development": GraduationCap,
+  "Knowledge Management": BrainCircuit,
+  "Visual Communication": MessagesSquare,
+  "Creative Problem Solving": Lightbulb,
+  "Research": FlaskConical,
+  "Leadership": Crown,
+  "Team Collaboration": UsersRound,
+  "Presentation Design": Presentation,
+  "Digital Content Creation": Clapperboard,
+  "Network Attack Detection": Network,
+  "Security Log Analysis": ScrollText,
+  "Linux / Server Hardening": ServerCog,
+  "Brute-force Mitigation": ShieldAlert,
+  "Access Control": LockKeyhole,
+  "Web Security": ShieldAccess,
+  "Public Wi-Fi / Evil Twin Analysis": Wifi,
+  "Penetration Testing": ScanSearch,
+  "Open-source Security Tools": Terminal,
+  "Web Development": Laptop,
+  "Responsive Web Design": MonitorSmartphone,
+} as const;
+
 export function SkillLogo({ name }: { name: string }) {
   const [sourceIndex, setSourceIndex] = useState(0);
   const entry = skillIcons[name];
   const urls = entry ? [entry.primary, entry.secondary].filter((url): url is string => Boolean(url)) : [];
   const fallbackKind = entry?.kind ?? (/design|photo|canva|video|capcut|adobe/i.test(name) ? "design" : /security|cyber|network|snort|wireshark/i.test(name) ? "security" : /web|code|program|responsive/i.test(name) ? "web" : "tool");
-  const FallbackIcon = fallbackKind === "design" ? Palette : fallbackKind === "security" ? ShieldCheck : fallbackKind === "web" ? Code2 : Wrench;
+  const MatchedIcon = competencyIcons[name as keyof typeof competencyIcons];
+  const FallbackIcon = MatchedIcon ?? (fallbackKind === "design" ? Palette : fallbackKind === "security" ? ShieldCheck : fallbackKind === "web" ? Code2 : Wrench);
   return (
     <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-border/40 bg-white p-1 shadow-sm" title={name} aria-label={`Ikon ${name}`}>
-      {sourceIndex < urls.length
+      {MatchedIcon ? <MatchedIcon className="h-5 w-5 text-slate-700" strokeWidth={1.8} aria-hidden="true" /> : sourceIndex < urls.length
         ? <img key={urls[sourceIndex]} src={urls[sourceIndex]} alt="" className="h-full w-full object-contain" loading="lazy" decoding="async" onError={() => setSourceIndex(index => index + 1)} />
         : <FallbackIcon className="h-5 w-5 text-slate-700" strokeWidth={1.8} aria-hidden="true" />}
     </span>
