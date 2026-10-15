@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, GraduationCap, Palette, Code2, Users, Trophy 
 const portraitUrl = "https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lovable.app/__l5e/assets-v1/b89d55e3-b936-45cf-9fe9-a6cfae10c21f/rakhmadi-portrait-updated.png";
 import { profile, education, experience, skillGroups, awards } from "@/lib/content";
 import { Section, meta } from "@/components/site/Layout";
+import { InstitutionLogo, SkillLogo } from "@/components/site/BrandLogos";
 
 export const Route = createFileRoute("/")({
   head: () => meta("Rakhmadi Rahman, S.T., M.Kom. — Dosen & Peneliti Keamanan Siber", "Profil Rakhmadi Rahman: dosen Sistem Informasi di ITH, riset keamanan siber, pengembangan aplikasi, dan desain kreatif."),
@@ -93,7 +94,7 @@ function Home() {
               {education.map((e) => (
                 <li key={e.year} className="grid grid-cols-[3.5rem_1fr] gap-3">
                   <span className="font-display text-primary">{e.year}</span>
-                  <div><p className="font-semibold">{e.degree} · {e.program}</p><p className="text-sm text-muted-foreground">{e.institution} — IPK {e.gpa}, {e.distinction}</p></div>
+                  <div className="flex min-w-0 items-start gap-3"><InstitutionLogo name={e.institution} size="sm" /><div><p className="font-semibold">{e.degree} · {e.program}</p><p className="text-sm text-muted-foreground">{e.institution} — IPK {e.gpa}, {e.distinction}</p></div></div>
                 </li>
               ))}
             </ul>
@@ -103,7 +104,7 @@ function Home() {
             <ul className="mt-6 space-y-6">
               {experience.map((e) => (
                 <li key={e.company} className="border-l-2 border-primary/40 pl-4">
-                  <p className="font-semibold">{e.company}</p>
+                  <div className="flex items-center gap-2"><InstitutionLogo name={e.company} size="sm" /><p className="font-semibold">{e.company}</p></div>
                   <p className="text-sm text-muted-foreground">{e.role} · {e.period}</p>
                 </li>
               ))}
@@ -116,7 +117,7 @@ function Home() {
       <Section eyebrow="Tools" title="Perangkat yang saya gunakan." action={<Link to="/skills" className="text-sm text-primary">Semua keahlian →</Link>}>
         <div className="flex flex-wrap gap-2">
           {skillGroups.slice(0, 2).flatMap((g) => g.items).map((s) => (
-            <span key={s} className="rounded-full border bg-card px-4 py-2 text-sm">{s}</span>
+            <span key={s} className="inline-flex items-center gap-2 rounded-xl border bg-card px-3 py-2 text-sm"><SkillLogo name={s} />{s}</span>
           ))}
         </div>
       </Section>
