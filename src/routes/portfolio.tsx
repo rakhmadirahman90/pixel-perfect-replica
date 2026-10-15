@@ -17,7 +17,7 @@ function Portfolio() {
   const list = projects.filter((p) => (cat === "Semua" || p.category === cat) && p.title.toLowerCase().includes(q.toLowerCase()));
   return (
     <>
-      <PageHeader eyebrow="Portofolio" title="Karya terpilih." intro="Proyek dan kontribusi yang tercantum dalam CV akademik. Visual pada kartu merupakan ilustrasi konsep, bukan dokumentasi atau tangkapan layar proyek asli." />
+      <PageHeader eyebrow="Portofolio" title="Karya terpilih." intro="Proyek aplikasi, media digital, dan pengabdian masyarakat dipisahkan menurut jenis kontribusi. Visual kartu adalah ilustrasi konsep, bukan dokumentasi asli." />
       <Section>
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex gap-2 overflow-x-auto pb-1">
@@ -40,13 +40,13 @@ function Portfolio() {
           </div>
         )}
       </Section>
-      <Section eyebrow="Penelitian & Pengabdian" title="Kontribusi akademik.">
-        <p className="mb-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">Kegiatan dari CV akademik dan biodata penelitian. Proyek Kedaireka yang juga tercantum di portofolio tidak dihitung sebagai kegiatan berbeda.</p>
+      <Section eyebrow="Kegiatan Akademik" title="Kontribusi akademik.">
+        <p className="mb-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">Ringkasan kegiatan terkait proyek di atas; tidak dihitung sebagai pengalaman kerja atau proyek tambahan.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {academicActivities.map((item) => <article key={item.title} className="group rounded-2xl border bg-card p-5 transition-all hover:border-primary/30 sm:p-6">
             <div className="mb-4 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-sky-400" /><p className="text-xs font-semibold text-primary">{item.year} · {item.role}</p>
             <h3 className="mt-3 text-lg font-semibold leading-snug">{item.title}</h3>
-            <p className="mt-3 text-sm text-muted-foreground">Sumber pendanaan / program: {item.funding}</p>
+            <p className="mt-3 text-sm text-muted-foreground">Institusi / program yang tercatat: {item.funding}</p>
           </article>)}
         </div>
       </Section>
