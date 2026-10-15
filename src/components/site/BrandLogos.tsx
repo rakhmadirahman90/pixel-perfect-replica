@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Code2, Globe2, Palette, ShieldCheck, Wrench } from "lucide-react";
 
 /** Show only recognizable brand marks; unknown/legacy schools use a clear typographic emblem, never a generic globe favicon. */
-const institutions: Record<string, { domain?: string; mark: string; short: string }> = {
+const institutions: Record<string, { domain?: string; logo?: string; mark: string; short: string }> = {
   "Institut Teknologi Bacharuddin Jusuf Habibie": { domain: "ith.ac.id", mark: "ITH", short: "ITH" },
   "BAZNAS Kota Parepare": { domain: "baznas.go.id", mark: "BAZ", short: "BAZNAS" },
   "Kedaireka — Riset Kolaboratif": { mark: "KR", short: "Kedaireka" },
@@ -12,9 +12,9 @@ const institutions: Record<string, { domain?: string; mark: string; short: strin
   "PT Astra Daihatsu Motor": { domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
   "PT Elnusa Petrofin": { domain: "elnusa.co.id", mark: "EP", short: "Elnusa" },
   "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { domain: "likmi.ac.id", mark: "LIKMI", short: "STMIK LIKMI" },
-  "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { domain: "inten.ac.id", mark: "INTEN", short: "ST-INTEN" },
+  "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { mark: "ST-INTEN", short: "ST-INTEN" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia": { domain: "inten.ac.id", mark: "INTEN", short: "ST-INTEN" },
-  "Politeknik Pos Indonesia, Bandung": { domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
+  "Politeknik Pos Indonesia, Bandung": { logo: "https://cdn.annibuku.com/uploads/logo-kampus/3444-universitas-logistik-dan-bisnis-internasional.png", mark: "ULBI", short: "ULBI" },
   "Politeknik Pos Indonesia": { domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
 };
 /** Use recognizable full-colour brand marks, with a second source if a CDN icon is unavailable. */
@@ -43,11 +43,14 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
   const entry = institutions[name];
   const initials = entry?.mark ?? name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
   const dimensions = size === "lg" ? "h-16 w-16" : size === "sm" ? "h-11 w-11" : "h-14 w-14";
-  const canShowFavicon = Boolean(entry?.domain && !failed);
+  // Website favicons often return a generic globe even with HTTP 200.
+  // Only render an explicitly identified institution logo; otherwise use a
+  // clear, legible institution wordmark until its authentic emblem is supplied.
+  const canShowLogo = Boolean(entry?.logo && !failed);
   return <span className={`inline-flex ${dimensions} shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-white p-1.5 shadow-sm ring-1 ring-black/5`} title={name} aria-label={name}>
-    {canShowFavicon
-      ? <img src={`https://www.google.com/s2/favicons?domain=${entry!.domain}&sz=256`} alt={`Logo institusi ${name}`} className="block h-full w-full object-contain" loading="lazy" decoding="async" onError={() => setFailed(true)} />
-      : <span className="flex h-full w-full items-center justify-center rounded-lg bg-slate-100 px-0.5 text-center font-display text-[9px] font-extrabold tracking-tight text-slate-800 sm:text-[10px]" aria-hidden="true">{initials}</span>}
+    {canShowLogo
+      ? <img src={entry!.logo} alt={`Logo ${entry!.short}`} className="block h-full w-full object-contain" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+      : <span className={`flex h-full w-full items-center justify-center rounded-lg bg-slate-50 px-0.5 text-center font-display font-extrabold leading-tight tracking-tight text-slate-800 ${initials.length > 5 ? "text-[8px] sm:text-[9px]" : "text-[11px]"}`} aria-hidden="true">{initials}</span>}
   </span>;
 }
 
