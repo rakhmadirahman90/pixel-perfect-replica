@@ -30,7 +30,21 @@ jobs:
       - name: Install dependencies
         run: |
           npm --version
-          npm install --no-audit --no-fund --legacy-peer-deps --install-strategy=hoisted
+          npm config set fetch-retries 5
+          npm config set fetch-retry-mintimeout 20000
+          npm config set fetch-retry-maxtimeout 120000
+          npm config set fetch-timeout 300000
+          for attempt in 1 2 3; do
+            echo "Dependency installation attempt $attempt/3"
+            if npm install --no-audit --no-fund --legacy-peer-deps --install-strategy=hoisted --prefer-offline; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Dependency installation failed after three attempts"
+              exit 1
+            fi
+            sleep $((attempt * 15))
+          done
           npm ls --depth=0 || true
       - name: Build static pages
         env:
