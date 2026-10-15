@@ -322,3 +322,17 @@ main article.rounded-2xl.border.bg-card::after {
   }
   main article.rounded-2xl.border.bg-card::after { opacity: .25; }
 }
+
+/* Explicitly rendered batik artwork replaces the previous near-invisible
+   pseudo-element. High-enough contrast for both themes, away from text. */
+:root { --batik-visible: oklch(0.46 0.15 250 / 55%); }
+.dark { --batik-visible: oklch(0.79 0.14 210 / 54%); }
+.batik-ornament {
+  color: var(--batik-visible);
+  opacity: .95;
+  filter: drop-shadow(0 0 12px color-mix(in oklab, var(--primary) 14%, transparent));
+}
+main > section:first-child::before { content: none !important; }
+@media (max-width: 639px) {
+  .batik-ornament { opacity: .7; }
+}
