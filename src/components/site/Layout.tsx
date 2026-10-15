@@ -139,8 +139,8 @@ export function Navbar() {
 
 export function Footer() {
   return (
-    <footer className="mt-6 border-t border-border/60">
-      <div className="mx-auto max-w-6xl px-5 py-5 text-center sm:px-6">
+    <footer className="mt-2 border-t border-border/60">
+      <div className="mx-auto max-w-6xl px-5 py-2.5 text-center sm:px-6">
         <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
           © {new Date().getFullYear()} {profile.name}, {profile.credentials}
         </p>
@@ -184,10 +184,10 @@ export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: 
   return (
     <section className="relative isolate overflow-hidden border-b grid-bg">
       <BatikAccent className="right-0 top-0 z-0 h-full w-[min(36vw,320px)] max-sm:w-[42vw]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-8 pt-8 sm:px-6 md:pb-12 md:pt-14">
+      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-5 pt-5 sm:px-6 md:pb-7 md:pt-8">
         <p className="eyebrow reveal">{eyebrow}</p>
-        <h1 className="reveal mt-2 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl" style={{ animationDelay: "80ms" }}>{title}</h1>
-        {intro && <p className="reveal mt-3 max-w-2xl text-muted-foreground md:text-lg" style={{ animationDelay: "160ms" }}>{intro}</p>}
+        <h1 className="reveal mt-2 max-w-3xl text-3xl font-bold leading-tight md:text-5xl" style={{ animationDelay: "80ms" }}>{title}</h1>
+        {intro && <p className="reveal mt-2 max-w-2xl text-muted-foreground md:text-lg" style={{ animationDelay: "160ms" }}>{intro}</p>}
       </div>
     </section>
   );
@@ -195,12 +195,12 @@ export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: 
 
 export function Section({ eyebrow, title, children, action }: { eyebrow?: string; title?: ReactNode; children: ReactNode; action?: ReactNode }) {
   return (
-    <section className="mx-auto max-w-6xl px-5 py-8 sm:px-6 md:py-12">
+    <section className="mx-auto max-w-6xl px-5 py-5 sm:px-6 md:py-7">
       {(eyebrow || title) && (
-        <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+        <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
           <div>
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-            {title && <h2 className="mt-2 text-2xl font-bold md:text-3xl">{title}</h2>}
+            {title && <h2 className="mt-1 text-xl font-bold md:text-2xl">{title}</h2>}
           </div>
           {action}
         </div>
