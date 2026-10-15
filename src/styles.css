@@ -260,3 +260,36 @@ footer::before {
   background: linear-gradient(to left, var(--primary), transparent);
   opacity: .55;
 }
+
+/* Route-aware cinematic micro-transitions: compositor-only, no layout shifts. */
+@keyframes route-cinematic-enter {
+  0% { opacity: 0; transform: translate3d(0, 14px, 0) scale(.988); filter: blur(5px); }
+  65% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); filter: blur(0); }
+}
+@keyframes route-accent-sweep {
+  0% { opacity: 0; transform: translateX(-100%); }
+  35% { opacity: .7; }
+  100% { opacity: 0; transform: translateX(110%); }
+}
+.route-transition {
+  isolation: isolate;
+  animation: route-cinematic-enter 460ms cubic-bezier(.16, 1, .3, 1) both !important;
+}
+.route-transition::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: route-accent-sweep 600ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-transition, .route-transition::after { animation: none !important; }
+}
