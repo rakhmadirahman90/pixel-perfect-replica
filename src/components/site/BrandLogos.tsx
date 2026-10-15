@@ -12,8 +12,8 @@ const institutions: Record<string, { domain?: string; logo?: string; mark: strin
   "PT Astra Daihatsu Motor": { logo: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Daihatsu_symbol.svg", domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
   "PT Elnusa Petrofin": { logo: "/logos/elnusa-petrofin.svg", domain: "elnusapetrofin.co.id", mark: "ELNUSA PETROFIN", short: "Elnusa Petrofin" },
   "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { logo: "/logos/likmi-high-resolution.png", mark: "LIKMI", short: "STMIK LIKMI" },
-  "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { logo: "/logos/st-inten-falatehan.svg", mark: "ST-INTEN", short: "ST-INTEN" },
-  "Sekolah Tinggi Sains dan Teknologi Indonesia": { logo: "/logos/st-inten-falatehan.svg", mark: "ST-INTEN", short: "ST-INTEN" },
+  "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { logo: "/logos/file_00000000412881f791ab1e4049f3e66a.png", mark: "ST-INTEN", short: "ST-INTEN" },
+  "Sekolah Tinggi Sains dan Teknologi Indonesia": { logo: "/logos/file_00000000412881f791ab1e4049f3e66a.png", mark: "ST-INTEN", short: "ST-INTEN" },
   "Politeknik Pos Indonesia, Bandung": { logo: "https://cdn.annibuku.com/uploads/logo-kampus/3444-universitas-logistik-dan-bisnis-internasional.png", mark: "ULBI", short: "ULBI" },
   "Politeknik Pos Indonesia": { domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
 };
