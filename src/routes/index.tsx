@@ -68,7 +68,7 @@ function Home() {
       {/* Intro */}
       <Section eyebrow="Perkenalan">
         <p className="max-w-4xl font-display text-2xl leading-snug md:text-4xl">
-          Teknologi dan desain saling melengkapi — <span className="font-serif italic text-primary">melainkan dua pendekatan</span> untuk menciptakan solusi digital yang bermanfaat.
+          Teknologi dan desain <span className="font-serif italic text-primary">saling melengkapi</span> untuk menciptakan solusi digital yang bermanfaat.
         </p>
       </Section>
 
