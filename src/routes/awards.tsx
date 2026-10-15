@@ -5,7 +5,7 @@ import { awards, organizations, intellectualProperty } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/awards")({
-  head: () => meta("Penghargaan — Rakhmadi Rahman", "Penghargaan dan pencapaian akademik Rakhmadi Rahman, termasuk Lulusan Terbaik STT Indonesia dan Politeknik Pos Indonesia."),
+  head: () => meta("Penghargaan — Rakhmadi Rahman", "Penghargaan akademik, pencatatan hak cipta, dan aktivitas organisasi disajikan sebagai kategori berbeda."),
   component: Awards,
 });
 
@@ -24,7 +24,7 @@ function Awards() {
           ))}
         </div>
       </Section>
-      <Section eyebrow="Hak Cipta" title="Karya tercatat & HKI.">
+      <Section eyebrow="Hak Cipta" title="Pencatatan hak cipta (HKI).">
         <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">Daftar pencatatan hak cipta dari biodata akademik. Nomor dicantumkan sesuai dokumen sumber; status registrasi terkini belum diperiksa secara independen.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {intellectualProperty.map((item) => <article key={item.registration} className="rounded-2xl border bg-card p-5 sm:p-6">
