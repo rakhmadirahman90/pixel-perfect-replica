@@ -12,10 +12,10 @@ const institutions: Record<string, { domain?: string; mark: string; short: strin
   "PT Astra Daihatsu Motor": { domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
   "PT Elnusa Petrofin": { domain: "elnusa.co.id", mark: "EP", short: "Elnusa" },
   "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { domain: "likmi.ac.id", mark: "LIKMI", short: "STMIK LIKMI" },
-  "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { mark: "STTI", short: "STT Indonesia" },
-  "Sekolah Tinggi Sains dan Teknologi Indonesia": { mark: "STTI", short: "STT Indonesia" },
-  "Politeknik Pos Indonesia, Bandung": { mark: "POLPOS", short: "Politeknik Pos" },
-  "Politeknik Pos Indonesia": { mark: "POLPOS", short: "Politeknik Pos" },
+  "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { domain: "inten.ac.id", mark: "INTEN", short: "ST-INTEN" },
+  "Sekolah Tinggi Sains dan Teknologi Indonesia": { domain: "inten.ac.id", mark: "INTEN", short: "ST-INTEN" },
+  "Politeknik Pos Indonesia, Bandung": { domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
+  "Politeknik Pos Indonesia": { domain: "ulbi.ac.id", mark: "ULBI", short: "ULBI" },
 };
 /** Use recognizable full-colour brand marks, with a second source if a CDN icon is unavailable. */
 const skillIcons: Record<string, { primary: string; secondary?: string; kind?: "design" | "security" | "web" | "tool" }> = {
