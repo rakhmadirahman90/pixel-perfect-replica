@@ -12,7 +12,7 @@ export const Route = createFileRoute("/experience")({
 function Experience() {
   return (
     <>
-      <PageHeader eyebrow="Karier" title="Riwayat pekerjaan profesional." intro="Posisi kerja, pengajaran, dan magang yang tercatat. Penugasan proyek disajikan terpisah." />
+      <PageHeader eyebrow="Karier" title="Pengalaman profesional." intro="Riwayat karier, penugasan akademik, dan pengalaman industri, disertai portofolio penugasan proyek yang dikelompokkan secara terpisah." />
       <Section>
         <div className="space-y-4">
           {experience.map((e, i) => (
@@ -33,11 +33,11 @@ function Experience() {
         </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Button asChild><a href={profile.academicCvUrl} target="_blank" rel="noreferrer">CV akademik →</a></Button>
-          <Button asChild variant="outline"><a href={profile.cvUrl} target="_blank" rel="noreferrer">CV terdahulu (arsip) →</a></Button>
+          <Button asChild variant="outline"><a href={profile.cvUrl} target="_blank" rel="noreferrer">Riwayat CV profesional →</a></Button>
         </div>
       </Section>
-      <Section eyebrow="Penugasan Proyek" title="Kolaborasi & penugasan profesional.">
-        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">Peran pada proyek tidak otomatis berarti hubungan kerja tetap. Status kontrak tidak diasumsikan jika tidak tercantum dalam sumber.</p>
+      <Section eyebrow="Penugasan Proyek" title="Penugasan dan kolaborasi proyek.">
+        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">Kontribusi profesional pada proyek pengembangan sistem, riset kolaboratif, dan transformasi digital.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {projectAssignments.map(item => <article key={item.projectSlug} className="rounded-2xl border bg-card p-5 sm:p-6">
             <div className="flex items-start gap-3"><InstitutionLogo name={item.company} /><div className="min-w-0"><p className="text-xs font-semibold text-primary">{item.period} · {item.role}</p><h3 className="mt-1 text-lg font-semibold">{item.company}</h3></div></div>
@@ -45,7 +45,7 @@ function Experience() {
           </article>)}
         </div>
       </Section>
-      <Section eyebrow="Pelatihan" title="Pengembangan kompetensi.">
+      <Section eyebrow="Pelatihan" title="Pelatihan dan pengembangan kompetensi.">
         {training.map(item => <article key={item.title} className="rounded-2xl border bg-card p-6"><p className="text-xs font-semibold text-primary">{item.year} · Pelatihan</p><h3 className="mt-2 font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted-foreground">{item.note}</p></article>)}
       </Section>
     </>
