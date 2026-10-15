@@ -16,7 +16,7 @@ const values = ["Analitis & kreatif", "Belajar berkelanjutan", "Solusi yang apli
 function About() {
   return (
     <>
-      <PageHeader eyebrow="Tentang Saya" title={<>Teknologi bertemu <span className="font-serif font-normal italic text-primary">kreativitas</span>.</>} />
+      <PageHeader eyebrow="Tentang Saya" title={<>Sinergi teknologi dan <span className="font-serif font-normal italic text-primary">kreativitas</span>.</>} />
       <Section>
         <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border bg-elevated grid-bg md:sticky md:top-24 md:self-start">
@@ -42,16 +42,16 @@ function About() {
             <ul className="mt-4 divide-y border-y">
               {education.map((e) => <li key={e.year} className="flex justify-between gap-4 py-3 text-sm"><span>{e.degree} — {e.program}</span><span className="text-muted-foreground">{e.year}</span></li>)}
             </ul>
-            <h2 className="mt-12 text-xl font-semibold">Organisasi & aktivitas kemahasiswaan</h2>
+            <h2 className="mt-12 text-xl font-semibold">Pengalaman organisasi</h2>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {organizations.map((o) => <li key={o.name}>• {o.name} <span className="text-xs">({o.note})</span></li>)}
             </ul>
-             <h2 className="mt-12 text-xl font-semibold">Arah riset doktoral</h2>
-             <p className="mt-4 text-muted-foreground">Rencana fokus studi doktoral, bukan kualifikasi doktor yang telah diperoleh.</p>
+             <h2 className="mt-12 text-xl font-semibold">Minat dan arah penelitian</h2>
+             <p className="mt-4 text-muted-foreground">Fokus pengembangan riset doktoral pada keamanan siber dan sistem digital yang tangguh.</p>
              <p className="mt-3 leading-relaxed">{research.direction}</p>
              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">{research.interests.map((interest) => <li key={interest}>— {interest}</li>)}</ul>
-             <h2 className="mt-12 text-xl font-semibold">Sumber CV & identitas institusi</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{sourceCv.notes} Sumber biodata bertanggal {sourceCv.date}.</p>
+             <h2 className="mt-12 text-xl font-semibold">Referensi akademik dan institusi</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Informasi akademik merujuk pada biodata profesional tertanggal {sourceCv.date} dan riwayat pendidikan yang tersedia.</p>
             <div className="mt-4 grid gap-2">
               {institutionalIdentitySources.map(item => <a key={item.url} href={item.url} target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 rounded-xl border bg-card px-4 py-3 text-sm transition-colors hover:border-primary/40"><span><strong className="block">{item.name}</strong><span className="text-xs text-muted-foreground">{item.note}</span></span><span aria-hidden="true" className="text-primary">↗</span></a>)}
             </div>
