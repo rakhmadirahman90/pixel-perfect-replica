@@ -12,7 +12,7 @@ export const Route = createFileRoute("/services")({
 function Services() {
   return (
     <>
-      <PageHeader eyebrow="Layanan" title="Apa yang bisa saya bantu." intro="Layanan kreatif dan digital untuk kebutuhan personal, komunitas, maupun organisasi." />
+      <PageHeader eyebrow="Layanan" title="Layanan kreatif dan digital." intro="Solusi desain, pengembangan antarmuka, dan produksi konten untuk mendukung kebutuhan komunikasi serta transformasi digital." />
       <Section>
         <div className="grid gap-px overflow-hidden rounded-2xl border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, i) => (
