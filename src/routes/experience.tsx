@@ -12,7 +12,7 @@ export const Route = createFileRoute("/experience")({
 function Experience() {
   return (
     <>
-      <PageHeader eyebrow="Karier" title="Pengalaman profesional." intro="Riwayat karier, penugasan akademik, dan pengalaman industri, disertai portofolio penugasan proyek yang dikelompokkan secara terpisah." />
+      <PageHeader eyebrow="Karier" title="Pengalaman profesional." intro="Pengalaman kerja, penugasan proyek, dan pelatihan ditampilkan terpisah." />
       <Section>
         <div className="space-y-4">
           {experience.map((e, i) => (
@@ -37,7 +37,7 @@ function Experience() {
         </div>
       </Section>
       <Section eyebrow="Penugasan Proyek" title="Penugasan dan kolaborasi proyek.">
-        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">Kontribusi profesional pada proyek pengembangan sistem, riset kolaboratif, dan transformasi digital.</p>
+        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">Proyek pengembangan sistem dan riset kolaboratif.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {projectAssignments.map(item => <article key={item.projectSlug} className="rounded-2xl border bg-card p-5 sm:p-6">
             <div className="flex items-start gap-3"><InstitutionLogo name={item.company} /><div className="min-w-0"><p className="text-xs font-semibold text-primary">{item.period} · {item.role}</p><h3 className="mt-1 text-lg font-semibold">{item.company}</h3></div></div>
