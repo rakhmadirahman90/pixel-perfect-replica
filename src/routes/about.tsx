@@ -33,7 +33,7 @@ function About() {
             <ul className="mt-4 divide-y border-y">
               {education.map((e) => <li key={e.year} className="flex justify-between gap-4 py-3 text-sm"><span>{e.degree} — {e.program}</span><span className="text-muted-foreground">{e.year}</span></li>)}
             </ul>
-            <h2 className="mt-12 text-xl font-semibold">Pengalaman organisasi</h2>
+            <h2 className="mt-12 text-xl font-semibold">Organisasi & aktivitas kemahasiswaan</h2>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {organizations.map((o) => <li key={o.name}>• {o.name} <span className="text-xs">({o.note})</span></li>)}
             </ul>
