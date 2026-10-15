@@ -11,7 +11,7 @@ const institutions: Record<string, { domain?: string; mark: string; short: strin
   "Binus Center Bandung": { domain: "binus.ac.id", mark: "BIN", short: "BINUS" },
   "PT Astra Daihatsu Motor": { domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
   "PT Elnusa Petrofin": { domain: "elnusa.co.id", mark: "EP", short: "Elnusa" },
-  "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { mark: "LIKMI", short: "STMIK LIKMI" },
+  "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { domain: "likmi.ac.id", mark: "LIKMI", short: "STMIK LIKMI" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { mark: "STTI", short: "STT Indonesia" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia": { mark: "STTI", short: "STT Indonesia" },
   "Politeknik Pos Indonesia, Bandung": { mark: "POLPOS", short: "Politeknik Pos" },
@@ -46,7 +46,7 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
   const canShowFavicon = Boolean(entry?.domain && !failed);
   return <span className={`inline-flex ${dimensions} shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-white p-1.5 shadow-sm ring-1 ring-black/5`} title={name} aria-label={name}>
     {canShowFavicon
-      ? <img src={`https://www.google.com/s2/favicons?domain=${entry!.domain}&sz=256`} alt={`Identitas visual ${name}`} className="block h-full w-full object-contain" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+      ? <img src={`https://www.google.com/s2/favicons?domain=${entry!.domain}&sz=256`} alt={`Logo institusi ${name}`} className="block h-full w-full object-contain" loading="lazy" decoding="async" onError={() => setFailed(true)} />
       : <span className="flex h-full w-full items-center justify-center rounded-lg bg-slate-100 px-0.5 text-center font-display text-[9px] font-extrabold tracking-tight text-slate-800 sm:text-[10px]" aria-hidden="true">{initials}</span>}
   </span>;
 }
