@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Trophy } from "lucide-react";
+import { InstitutionLogo } from "@/components/site/BrandLogos";
 import { awards, organizations } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 
@@ -17,7 +18,7 @@ function Awards() {
           {awards.map((a) => (
             <div key={a.title + a.year} className="grid items-center gap-2 py-7 md:grid-cols-[8rem_1fr_auto]">
               <p className="font-display text-4xl font-bold text-primary">{a.year}</p>
-              <div><h2 className="text-xl font-semibold">{a.title}</h2><p className="text-muted-foreground">{a.institution}</p></div>
+              <div className="flex items-center gap-3"><InstitutionLogo name={a.institution} /><div className="min-w-0"><h2 className="text-xl font-semibold">{a.title}</h2><p className="text-muted-foreground">{a.institution}</p></div></div>
               <Trophy className="hidden h-5 w-5 text-muted-foreground md:block" />
             </div>
           ))}
