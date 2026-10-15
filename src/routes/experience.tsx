@@ -1,18 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { experience, profile } from "@/lib/content";
+import { experience, profile, projectAssignments, training } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
 import { InstitutionLogo } from "@/components/site/BrandLogos";
 
 export const Route = createFileRoute("/experience")({
-  head: () => meta("Pengalaman & Resume — Rakhmadi Rahman", "Pengalaman dosen Sistem Informasi ITH, pengembangan aplikasi BAZNAS, GIS Kemkominfo, riset Kedaireka, dan riwayat karier Rakhmadi Rahman."),
+  head: () => meta("Pengalaman & Resume — Rakhmadi Rahman", "Riwayat pekerjaan dan magang, dipisahkan dari penugasan proyek dan pelatihan."),
   component: Experience,
 });
 
 function Experience() {
   return (
     <>
-      <PageHeader eyebrow="Pengalaman & Resume" title="Perjalanan profesional." intro="Pengajaran Sistem Informasi, riset keamanan siber, pengembangan aplikasi, serta riwayat teknologi dan pengembangan SDM." />
+      <PageHeader eyebrow="Karier" title="Riwayat pekerjaan profesional." intro="Posisi kerja, pengajaran, dan magang yang tercatat. Penugasan proyek disajikan terpisah." />
       <Section>
         <div className="space-y-4">
           {experience.map((e, i) => (
@@ -35,6 +35,18 @@ function Experience() {
           <Button asChild><a href={profile.academicCvUrl} target="_blank" rel="noreferrer">CV akademik →</a></Button>
           <Button asChild variant="outline"><a href={profile.cvUrl} target="_blank" rel="noreferrer">CV terdahulu (arsip) →</a></Button>
         </div>
+      </Section>
+      <Section eyebrow="Penugasan Proyek" title="Kolaborasi & penugasan profesional.">
+        <p className="mb-6 text-sm leading-relaxed text-muted-foreground">Peran pada proyek tidak otomatis berarti hubungan kerja tetap. Status kontrak tidak diasumsikan jika tidak tercantum dalam sumber.</p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {projectAssignments.map(item => <article key={item.projectSlug} className="rounded-2xl border bg-card p-5 sm:p-6">
+            <div className="flex items-start gap-3"><InstitutionLogo name={item.company} /><div className="min-w-0"><p className="text-xs font-semibold text-primary">{item.period} · {item.role}</p><h3 className="mt-1 text-lg font-semibold">{item.company}</h3></div></div>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.note}</p>
+          </article>)}
+        </div>
+      </Section>
+      <Section eyebrow="Pelatihan" title="Pengembangan kompetensi.">
+        {training.map(item => <article key={item.title} className="rounded-2xl border bg-card p-6"><p className="text-xs font-semibold text-primary">{item.year} · Pelatihan</p><h3 className="mt-2 font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted-foreground">{item.note}</p></article>)}
       </Section>
     </>
   );
