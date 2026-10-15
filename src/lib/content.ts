@@ -47,24 +47,6 @@ export const experience = [
     points: ["Sistem Informasi", "Riset keamanan siber terapan", "Deteksi dan monitoring serangan jaringan", "Publikasi keamanan siber dan sistem informasi"],
   },
   {
-    company: "BAZNAS Kota Parepare",
-    role: "Application Developer",
-    period: "2023",
-    points: ["Pengembangan sistem pencatatan dan pelaporan transaksi zakat, infak, dan sedekah"],
-  },
-  {
-    company: "Kedaireka — Riset Kolaboratif",
-    role: "Anggota Tim",
-    period: "2023",
-    points: ["Media digital untuk literasi mitigasi bencana gempa bumi di Sulawesi Barat"],
-  },
-  {
-    company: "Kementerian Komunikasi dan Informatika (Kemkominfo)",
-    role: "Tenaga Ahli Informatika",
-    period: "2021",
-    points: ["Pengembangan GIS untuk pemetaan potensi kawasan prioritas"],
-  },
-  {
     company: "PT Pos Indonesia (Persero)",
     role: "Learning and Development / Junior Analyst",
     period: "Okt 2011 – (tercatat: sekarang)",
@@ -89,7 +71,19 @@ export const experience = [
     role: "Internship",
     period: "Agu 2009 – Sep 2009",
     points: ["Administrasi operasional", "Dukungan operasi penyimpanan BBM"],
+    internship: true,
   },
+];
+
+// Penugasan berbasis proyek: jangan dihitung sebagai pekerjaan tetap tanpa bukti kontrak kerja.
+export const projectAssignments = [
+  { company: "BAZNAS Kota Parepare", role: "Application Developer", period: "2023", projectSlug: "baznas-parepare", note: "Pengembangan sistem transaksi dan pelaporan; status hubungan kerja tidak dinyatakan dalam CV." },
+  { company: "Kementerian Komunikasi dan Informatika (Kemkominfo)", role: "Tenaga Ahli Informatika", period: "2021", projectSlug: "gis-kemkominfo", note: "Kontribusi pengembangan GIS; bentuk dan durasi kontrak tidak tercantum." },
+  { company: "Kedaireka — Riset Kolaboratif", role: "Anggota tim riset", period: "2023", projectSlug: "kedaireka-mitigasi-gempa", note: "Proyek kolaboratif, bukan posisi kerja tetap." },
+];
+
+export const training = [
+  { title: "Instructor Methodology Training Program", year: "2020", provider: "Program pelatihan instruktur", note: "Tercatat dalam riwayat; nomor sertifikat belum tersedia." },
 ];
 
 export const skillGroups = [
@@ -119,7 +113,6 @@ export const awards = [
   { year: "2013", title: "Lulusan Terbaik", institution: "Sekolah Tinggi Sains dan Teknologi Indonesia" },
   { year: "2011", title: "Lulusan Terbaik", institution: "Politeknik Pos Indonesia" },
   { year: "2011", title: "Mahasiswa Terbaik, Jurusan Teknik Informatika", institution: "Politeknik Pos Indonesia" },
-  { year: "2020", title: "Instructor Methodology Training Program", institution: "Program pelatihan instruktur" },
 ];
 
 export const organizations = [
@@ -139,7 +132,7 @@ export const services = [
   { title: "Creative Consultation", desc: "Diskusi strategi visual dan digital untuk ide Anda." },
 ];
 
-export const portfolioCategories = ["Graphic Design", "Branding & Identity", "Digital Illustration", "Video Editing", "Web Development", "Application Development", "UI/UX Design", "Digital Media"];
+export const portfolioCategories = ["Application Development", "Digital Media", "Community Service"];
 
 // Only verified & approved projects belong here. The old site's entries were demo content.
 export type Project = { slug: string; title: string; category: string; year: string; summary: string; cover?: string };
@@ -147,9 +140,9 @@ export const projects: Project[] = [
   { slug: "baznas-parepare", title: "Sistem Transaksi & Pelaporan BAZNAS Kota Parepare", category: "Application Development", year: "2023", summary: "Peran: Application Developer. Pengembangan sistem pencatatan transaksi dan pelaporan untuk BAZNAS Kota Parepare, sebagaimana tercantum dalam CV akademik." },
   { slug: "kedaireka-mitigasi-gempa", title: "Media Digital Literasi Mitigasi Gempa", category: "Digital Media", year: "2023", summary: "Peran: anggota tim riset kolaboratif Kedaireka. Media digital untuk literasi mitigasi bencana gempa bumi di Sulawesi Barat." },
   { slug: "gis-kemkominfo", title: "GIS Pemetaan Potensi Kawasan Prioritas", category: "Application Development", year: "2021", summary: "Peran: Tenaga Ahli Informatika. Pengembangan GIS untuk pemetaan potensi kawasan prioritas di Kemkominfo, Indonesia." },
-  { slug: "ar-shohwatul-isad", title: "Media Pembelajaran Interaktif Augmented Reality — Shohwatul Is’Ad", category: "Digital Media", year: "2023", summary: "Anggota tim pendampingan pengembangan media pembelajaran interaktif berbasis Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep." },
-  { slug: "google-workspace-sman3", title: "Pelatihan Google Workspace — SMAN 3 Parepare", category: "Digital Media", year: "2023", summary: "Anggota tim pengabdian untuk pemanfaatan Google Workspace dalam produktivitas, kolaborasi, dan pembelajaran aktif." },
-  { slug: "microsoft-project-lapadde", title: "Pelatihan Microsoft Project — Kelurahan Lapadde", category: "Digital Media", year: "2023", summary: "Anggota tim pelatihan Microsoft Project untuk mendukung perencanaan program kegiatan di Kelurahan Lapadde, Parepare." },
+  { slug: "ar-shohwatul-isad", title: "Media Pembelajaran Interaktif Augmented Reality — Shohwatul Is’Ad", category: "Community Service", year: "2023", summary: "Anggota tim pendampingan pengembangan media pembelajaran interaktif berbasis Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep." },
+  { slug: "google-workspace-sman3", title: "Pelatihan Google Workspace — SMAN 3 Parepare", category: "Community Service", year: "2023", summary: "Anggota tim pengabdian untuk pemanfaatan Google Workspace dalam produktivitas, kolaborasi, dan pembelajaran aktif." },
+  { slug: "microsoft-project-lapadde", title: "Pelatihan Microsoft Project — Kelurahan Lapadde", category: "Community Service", year: "2023", summary: "Anggota tim pelatihan Microsoft Project untuk mendukung perencanaan program kegiatan di Kelurahan Lapadde, Parepare." },
 ];
 
 export const research = {
@@ -185,6 +178,7 @@ export const intellectualProperty = [
   { title: "Buku Ajar Keamanan Jaringan Komputer", registration: "EC00202433544", year: "2024 (berdasarkan nomor pencatatan)" },
 ];
 
+// Jenis kegiatan dipertahankan agar kegiatan pengabdian tidak dianggap proyek komersial.
 export const academicActivities = [
   { title: "Riset kolaboratif Kedaireka: komik digital untuk literasi mitigasi gempa Sulawesi Barat", year: "2023", role: "Anggota tim", funding: "Kedaireka" },
   { title: "Pendampingan media pembelajaran Augmented Reality di Pondok Pesantren Modern Islam Shohwatul Is’Ad, Pangkep", year: "2023", role: "Anggota tim", funding: "Institut Teknologi Bacharuddin Jusuf Habibie" },
