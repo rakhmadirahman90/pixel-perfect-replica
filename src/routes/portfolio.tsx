@@ -17,7 +17,7 @@ function Portfolio() {
   const list = projects.filter((p) => (cat === "Semua" || p.category === cat) && p.title.toLowerCase().includes(q.toLowerCase()));
   return (
     <>
-      <PageHeader eyebrow="Portofolio" title="Karya terpilih." intro="Proyek aplikasi, media digital, dan pengabdian masyarakat dipisahkan menurut jenis kontribusi. Visual kartu adalah ilustrasi konsep, bukan dokumentasi asli." />
+      <PageHeader eyebrow="Portofolio" title="Portofolio proyek dan kegiatan." intro="Dokumentasi kontribusi dalam pengembangan aplikasi, inovasi media digital, penelitian kolaboratif, dan pengabdian kepada masyarakat." />
       <Section>
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex gap-2 overflow-x-auto pb-1">
@@ -31,7 +31,7 @@ function Portfolio() {
           </label>
         </div>
         {list.length === 0 ? (
-          <EmptyState title="Tidak ada proyek yang cocok" text="Belum ada proyek pada kategori atau kata pencarian ini." />
+          <EmptyState title="Proyek tidak ditemukan" text="Silakan gunakan kata kunci lain atau pilih kategori berbeda." />
         ) : (
           <div className="grid gap-4 md:grid-cols-3">
             {list.map((p) => (
@@ -40,13 +40,13 @@ function Portfolio() {
           </div>
         )}
       </Section>
-      <Section eyebrow="Kegiatan Akademik" title="Kontribusi akademik.">
-        <p className="mb-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">Ringkasan kegiatan terkait proyek di atas; tidak dihitung sebagai pengalaman kerja atau proyek tambahan.</p>
+      <Section eyebrow="Kegiatan Akademik" title="Penelitian dan pengabdian masyarakat.">
+        <p className="mb-7 max-w-3xl text-sm leading-relaxed text-muted-foreground">Kegiatan penelitian dan pengabdian kepada masyarakat yang dilaksanakan melalui kolaborasi dengan institusi pendidikan dan mitra terkait.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {academicActivities.map((item) => <article key={item.title} className="group rounded-2xl border bg-card p-5 transition-all hover:border-primary/30 sm:p-6">
             <div className="mb-4 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-sky-400" /><p className="text-xs font-semibold text-primary">{item.year} · {item.role}</p>
             <h3 className="mt-3 text-lg font-semibold leading-snug">{item.title}</h3>
-            <p className="mt-3 text-sm text-muted-foreground">Institusi / program yang tercatat: {item.funding}</p>
+            <p className="mt-3 text-sm text-muted-foreground">Institusi atau program: {item.funding}</p>
           </article>)}
         </div>
       </Section>
