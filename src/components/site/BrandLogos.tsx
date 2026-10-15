@@ -3,14 +3,14 @@ import { Code2, Globe2, Palette, ShieldCheck, Wrench } from "lucide-react";
 
 /** Show only recognizable brand marks; unknown/legacy schools use a clear typographic emblem, never a generic globe favicon. */
 const institutions: Record<string, { domain?: string; logo?: string; mark: string; short: string }> = {
-  "Institut Teknologi Bacharuddin Jusuf Habibie": { logo: "https://ith.ac.id/wp-content/uploads/2022/06/cropped-logo-ith.png", domain: "ith.ac.id", mark: "ITH", short: "ITH" },
+  "Institut Teknologi Bacharuddin Jusuf Habibie": { domain: "ith.ac.id", mark: "ITH", short: "ITH" },
   "BAZNAS Kota Parepare": { domain: "baznas.go.id", mark: "BAZ", short: "BAZNAS" },
   "Kedaireka — Riset Kolaboratif": { mark: "KR", short: "Kedaireka" },
   "Kementerian Komunikasi dan Informatika (Kemkominfo)": { domain: "komdigi.go.id", mark: "KOM", short: "Kominfo" },
   "PT Pos Indonesia (Persero)": { logo: "https://commons.wikimedia.org/wiki/Special:Redirect/file/POSIND_2023.svg", domain: "posindonesia.co.id", mark: "POS", short: "Pos Indonesia" },
-  "Binus Center Bandung": { logo: "https://api.iconify.design/simple-icons/binus.svg?color=%23005b9f", domain: "binus.ac.id", mark: "BIN", short: "BINUS" },
+  "Binus Center Bandung": { domain: "binus.ac.id", mark: "BINUS CENTER", short: "BINUS Center" },
   "PT Astra Daihatsu Motor": { logo: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Daihatsu_symbol.svg", domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
-  "PT Elnusa Petrofin": { logo: "https://www.elnusapetrofin.co.id/favicon.ico", domain: "elnusapetrofin.co.id", mark: "EP", short: "Elnusa Petrofin" },
+  "PT Elnusa Petrofin": { domain: "elnusapetrofin.co.id", mark: "ELNUSA PETROFIN", short: "Elnusa Petrofin" },
   "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { logo: "/logos/likmi.svg", mark: "LIKMI", short: "STMIK LIKMI" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { logo: "/logos/st-inten-falatehan.svg", mark: "ST-INTEN", short: "ST-INTEN" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia": { domain: "inten.ac.id", mark: "INTEN", short: "ST-INTEN" },
@@ -50,7 +50,7 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
   return <span className={`inline-flex ${dimensions} shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-white p-1.5 shadow-sm ring-1 ring-black/5`} title={name} aria-label={name}>
     {canShowLogo
       ? <img src={entry!.logo} alt={`Logo ${entry!.short}`} className="block h-full w-full object-contain" loading="lazy" decoding="async" onError={() => setFailed(true)} />
-      : <span className={`flex h-full w-full items-center justify-center rounded-lg bg-slate-50 px-0.5 text-center font-display font-extrabold leading-tight tracking-tight text-slate-800 ${initials.length > 5 ? "text-[8px] sm:text-[9px]" : "text-[11px]"}`} aria-hidden="true">{initials}</span>}
+      : <span className={`flex h-full w-full items-center justify-center rounded-lg bg-slate-50 px-0.5 text-center font-display font-extrabold leading-tight tracking-tight text-slate-800 ${initials.length > 8 ? "text-[7px] sm:text-[8px]" : initials.length > 5 ? "text-[8px] sm:text-[9px]" : "text-[11px]"}`} aria-hidden="true">{initials}</span>}
   </span>;
 }
 
