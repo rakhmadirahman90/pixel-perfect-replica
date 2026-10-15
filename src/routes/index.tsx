@@ -25,10 +25,10 @@ function Home() {
       <section className="relative isolate overflow-hidden grid-bg">
         <BatikAccent className="right-0 top-0 z-0 h-full w-[min(40vw,400px)] max-sm:w-[46vw]" />
         <div className="glow pointer-events-none absolute -right-40 top-10 h-[36rem] w-[36rem]" />
-        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-7 px-5 pb-9 pt-8 sm:px-6 md:grid-cols-[1.1fr_0.9fr] md:gap-10 md:py-14">
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-4 px-5 pb-4 pt-5 sm:px-6 md:grid-cols-[1.1fr_0.9fr] md:gap-8 md:py-7">
           <div>
             <p className="eyebrow reveal">PORTOFOLIO PROFESIONAL</p>
-            <h1 className="reveal mt-3 text-[clamp(2.2rem,7vw,4.2rem)] font-bold leading-[1.07] tracking-tight lg:text-7xl" style={{ animationDelay: "100ms" }}>
+            <h1 className="reveal mt-3 text-[clamp(1.9rem,6vw,3.2rem)] font-bold leading-[1.07] tracking-tight lg:text-7xl" style={{ animationDelay: "100ms" }}>
               Rakhmadi <span className="font-serif font-normal italic text-primary">Rahman.</span>
             </h1>
             <div className="reveal mt-4 flex items-center gap-3 text-sm text-muted-foreground" style={{ animationDelay: "200ms" }}>
@@ -42,14 +42,14 @@ function Home() {
             <p className="reveal mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base" style={{ animationDelay: "300ms" }}>
                Dosen Sistem Informasi, peneliti keamanan siber, dan praktisi pengembangan aplikasi serta desain digital.
             </p>
-            <div className="reveal mt-5 flex flex-wrap items-center gap-2.5" style={{ animationDelay: "400ms" }}>
+            <div className="reveal mt-3 flex flex-wrap items-center gap-2.5" style={{ animationDelay: "400ms" }}>
               <Link to="/portfolio" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">Jelajahi Portofolio <ArrowRight className="h-4 w-4" /></Link>
               <Link to="/about" className="inline-flex items-center rounded-full border px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary">Tentang Saya</Link>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-[min(100%,19rem)] px-1 pb-3 sm:px-3 md:max-w-[22rem]">
+          <div className="relative mx-auto w-full max-w-[min(100%,10rem)] px-1 pb-3 sm:px-3 md:max-w-[15rem]">
             <div className="absolute -inset-3 rounded-[2rem] border border-dashed" />
-            <div className="mask-reveal relative aspect-[4/4.4] overflow-hidden rounded-[1.75rem] rounded-tr-[5rem] border bg-elevated shadow-2xl shadow-primary/10" style={{ animationDelay: "250ms" }}>
+            <div className="mask-reveal relative aspect-square overflow-hidden rounded-[1.75rem] rounded-tr-[5rem] border bg-elevated shadow-2xl shadow-primary/10" style={{ animationDelay: "250ms" }}>
               <div className="absolute inset-0 grid-bg" />
                <img src={portraitUrl} alt="Potret Rakhmadi Rahman" className="absolute inset-0 h-full w-full object-cover object-top" />
             </div>
@@ -58,52 +58,26 @@ function Home() {
         </div>
       </section>
 
-      {/* Expertise */}
-      <Section eyebrow="Keahlian Utama" title="Fokus keahlian.">
-        <div className="grid gap-3 md:grid-cols-3">
-          {expertise.map(({ icon: Icon, title, text }, i) => (
-            <div key={title} className="group rounded-2xl border bg-card p-5 sm:p-6 transition-all hover:-translate-y-1 hover:border-primary/40">
-              <div className="flex items-center justify-between">
-                <Icon className="h-6 w-6 text-primary" />
-                <span className="font-display text-sm text-muted-foreground">0{i + 1}</span>
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">{title}</h3>
-              <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{text}</p>
-            </div>
+      <section className="mx-auto max-w-5xl px-5 pb-24 pt-3 lg:pb-8">
+        <div className="grid grid-cols-4 gap-2 rounded-3xl border bg-card/80 p-3 shadow-lg backdrop-blur-xl sm:gap-3 sm:p-5 lg:grid-cols-8">
+          {[
+            {to:"/about",title:"Profil",icon:Users},
+            {to:"/education",title:"Pendidikan",icon:Code2},
+            {to:"/experience",title:"Karier",icon:Users},
+            {to:"/portfolio",title:"Karya",icon:Palette},
+            {to:"/skills",title:"Keahlian",icon:Code2},
+            {to:"/awards",title:"Prestasi",icon:ArrowUpRight},
+            {to:"/articles",title:"Artikel",icon:Code2},
+            {to:"/contact",title:"Kontak",icon:ArrowRight},
+          ].map(({to,title,icon:Icon}) => (
+            <Link key={to} to={to} className="group flex flex-col items-center gap-2 rounded-2xl border bg-background/70 px-1 py-3 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-primary/10 active:scale-95">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"><Icon className="h-5 w-5" /></span>
+              <span className="text-[11px] font-medium sm:text-xs">{title}</span>
+            </Link>
           ))}
         </div>
-      </Section>
-
-      {/* Selected visual work */}
-      <Section eyebrow="Portofolio Unggulan" title="Karya terpilih." action={<Link to="/portfolio" className="text-sm text-primary">Lihat semua proyek →</Link>}>
-        <div className="grid gap-3 md:grid-cols-3">
-          {projects.slice(0, 3).map(p => <Link key={p.slug} to="/portfolio" className="group overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
-            <ProjectVisual slug={p.slug} title={p.title} />
-            <div className="p-4"><p className="text-xs font-semibold text-primary">{p.category} · {p.year}</p><h3 className="mt-2 text-lg font-semibold leading-snug">{p.title}</h3><p className="mt-2 line-clamp-2 text-sm leading-6 text-muted-foreground">{p.summary}</p></div>
-          </Link>)}
-        </div>
-      </Section>
-
-      <Section eyebrow="Selengkapnya" title="Riwayat dan pencapaian.">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            {to:"/education",title:"Pendidikan",desc:"Jenjang dan capaian akademik"},
-            {to:"/experience",title:"Karier",desc:"Peran dan pengalaman kerja"},
-            {to:"/skills",title:"Keahlian",desc:"Kompetensi dan perangkat kerja"},
-            {to:"/awards",title:"Prestasi",desc:"Penghargaan dan hak cipta"}
-          ].map(item=><Link key={item.to} to={item.to} className="group rounded-2xl border bg-card p-5 transition-all hover:-translate-y-1 hover:border-primary/40"><h3 className="font-semibold">{item.title}</h3><p className="mt-2 text-sm text-muted-foreground">{item.desc}</p><ArrowUpRight className="mt-3 h-4 w-4 text-primary"/></Link>)}
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <section className="mx-auto max-w-6xl px-5">
-        <div className="relative overflow-hidden rounded-3xl border bg-card p-6 md:p-10 grid-bg">
-          <div className="glow pointer-events-none absolute -bottom-40 -right-20 h-96 w-96" />
-          <p className="eyebrow">Kolaborasi</p>
-          <h2 className="mt-2 max-w-2xl text-2xl font-bold md:text-3xl">Wujudkan kolaborasi yang berdampak <span className="font-serif font-normal italic text-primary">bersama</span>.</h2>
-          <Link to="/contact" className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground">Mulai percakapan <ArrowUpRight className="h-4 w-4" /></Link>
-        </div>
       </section>
+
     </>
   );
 }
