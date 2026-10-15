@@ -99,7 +99,7 @@ function Home() {
       </Section>
 
       {/* Education + Career */}
-      <Section eyebrow="Perjalanan" title="Pendidikan & karier." action={<Link to="/experience" className="text-sm text-primary">Lihat resume lengkap →</Link>}>
+      <Section eyebrow="Perjalanan" title="Pendidikan & riwayat kerja." action={<Link to="/experience" className="text-sm text-primary">Lihat riwayat kerja →</Link>}>
         <div className="grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border bg-card p-7">
             <div className="flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap className="h-4 w-4 text-primary" /> Pendidikan</div>
