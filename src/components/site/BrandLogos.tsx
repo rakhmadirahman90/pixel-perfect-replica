@@ -42,14 +42,14 @@ export function InstitutionLogo({ name, size = "md" }: { name: string; size?: "s
   const [failed, setFailed] = useState(false);
   const entry = institutions[name];
   const initials = entry?.mark ?? name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
-  const dimensions = size === "lg" ? "h-20 w-20" : size === "sm" ? "h-12 w-12" : "h-16 w-16";
+  const dimensions = size === "lg" ? "h-16 w-16" : size === "sm" ? "h-11 w-11" : "h-14 w-14";
   // Website favicons often return a generic globe even with HTTP 200.
   // Only render an explicitly identified institution logo; otherwise use a
   // clear, legible institution wordmark until its authentic emblem is supplied.
   const canShowLogo = Boolean(entry?.logo && !failed);
   return <span className={`inline-flex ${dimensions} shrink-0 items-center justify-center overflow-hidden rounded-xl border border-primary/20 bg-white p-0.5 shadow-sm ring-1 ring-black/5`} title={name} aria-label={name}>
     {canShowLogo
-      ? <img src={entry!.logo} alt={`Logo ${entry!.short}`} className="block h-full w-full object-contain [image-rendering:auto]" loading="lazy" decoding="async" onError={() => setFailed(true)} />
+      ? <img src={entry!.logo} alt={`Logo ${entry!.short}`} className="block h-full w-full object-contain [image-rendering:high-quality]" loading="lazy" decoding="async" onError={() => setFailed(true)} />
       : <span className={`flex h-full w-full items-center justify-center rounded-lg bg-slate-50 px-0.5 text-center font-display font-extrabold leading-tight tracking-tight text-slate-800 ${initials.length > 8 ? "text-[7px] sm:text-[8px]" : initials.length > 5 ? "text-[8px] sm:text-[9px]" : "text-[11px]"}`} aria-hidden="true">{initials}</span>}
   </span>;
 }
