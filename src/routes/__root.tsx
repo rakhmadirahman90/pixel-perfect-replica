@@ -93,7 +93,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
-      <main className="overflow-x-hidden">
+      <main key={pathname} className="route-transition relative overflow-x-hidden" aria-label="Konten halaman">
         <Outlet />
       </main>
       {!isHome && <Footer />}
