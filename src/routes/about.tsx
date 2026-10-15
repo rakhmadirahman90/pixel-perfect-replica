@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Download } from "lucide-react";
-import portrait from "@/assets/portrait-updated.png.asset.json";
+// Lovable-hosted portrait: use absolute URL because /__l5e assets are not served by Vercel.
+const portraitUrl = "https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lovable.app/__l5e/assets-v1/b89d55e3-b936-45cf-9fe9-a6cfae10c21f/rakhmadi-portrait-updated.png";
 import { bio, profile, education, organizations, research } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
@@ -19,7 +20,7 @@ function About() {
       <Section>
         <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border bg-elevated grid-bg md:sticky md:top-24 md:self-start">
-             <img src={portrait.url} alt="Potret Rakhmadi Rahman" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-top" />
+             <img src={portraitUrl} alt="Potret Rakhmadi Rahman" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-top" />
           </div>
           <div>
             <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
