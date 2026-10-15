@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { experience, profile } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/experience")({
-  head: () => meta("Pengalaman & Resume — Rakhmadi Rahman", "Perjalanan profesional Rakhmadi Rahman di PT Pos Indonesia, Binus Center Bandung, PT Astra Daihatsu Motor, dan PT Elnusa Petrofin."),
+  head: () => meta("Pengalaman & Resume — Rakhmadi Rahman", "Pengalaman dosen Sistem Informasi ITH, pengembangan aplikasi BAZNAS, GIS Kemkominfo, riset Kedaireka, dan riwayat karier Rakhmadi Rahman."),
   component: Experience,
 });
 
 function Experience() {
   return (
     <>
-      <PageHeader eyebrow="Pengalaman & Resume" title="Perjalanan profesional." intro="Dari engineering dan pengajaran teknologi hingga pembelajaran & pengembangan SDM." />
+      <PageHeader eyebrow="Pengalaman & Resume" title="Perjalanan profesional." intro="Pengajaran Sistem Informasi, riset keamanan siber, pengembangan aplikasi, serta riwayat teknologi dan pengembangan SDM." />
       <Section>
         <div className="space-y-4">
           {experience.map((e, i) => (
@@ -30,7 +31,10 @@ function Experience() {
             </article>
           ))}
         </div>
-        <a href={profile.cvUrl} target="_blank" rel="noreferrer" className="mt-10 inline-flex rounded-full border px-5 py-3 text-sm font-medium">Lihat CV asli (arsip) →</a>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Button asChild><a href={profile.academicCvUrl} target="_blank" rel="noreferrer">CV akademik →</a></Button>
+          <Button asChild variant="outline"><a href={profile.cvUrl} target="_blank" rel="noreferrer">CV terdahulu (arsip) →</a></Button>
+        </div>
       </Section>
     </>
   );

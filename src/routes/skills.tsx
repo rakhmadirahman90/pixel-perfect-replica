@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Palette, Code2, Users } from "lucide-react";
+import { Palette, Code2, Users, ShieldCheck } from "lucide-react";
 import { skillGroups } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 
@@ -8,14 +8,14 @@ export const Route = createFileRoute("/skills")({
   component: Skills,
 });
 
-const icons = [Palette, Code2, Users];
+const icons = [Palette, Code2, ShieldCheck, Users];
 
 function Skills() {
   return (
     <>
       <PageHeader eyebrow="Keahlian" title="Skills & expertise." intro="Gabungan perangkat kreatif, teknologi, dan kompetensi profesional." />
       <Section>
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {skillGroups.map((g, i) => {
             const Icon = icons[i] ?? Palette;
             return (
