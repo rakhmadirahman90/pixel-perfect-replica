@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { experience, profile } from "@/lib/content";
 import { PageHeader, Section, meta } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
+import { InstitutionLogo } from "@/components/site/BrandLogos";
 
 export const Route = createFileRoute("/experience")({
   head: () => meta("Pengalaman & Resume — Rakhmadi Rahman", "Pengalaman dosen Sistem Informasi ITH, pengembangan aplikasi BAZNAS, GIS Kemkominfo, riset Kedaireka, dan riwayat karier Rakhmadi Rahman."),
@@ -21,8 +22,7 @@ function Experience() {
                 {e.historical && <span className="mt-2 inline-block rounded-full border px-2.5 py-0.5 text-xs text-muted-foreground">Data riwayat</span>}
               </div>
               <div>
-                <h2 className="text-2xl font-semibold">{e.company}</h2>
-                <p className="text-muted-foreground">{e.role}</p>
+                <div className="flex items-center gap-4"><InstitutionLogo name={e.company} size="lg" /><div className="min-w-0"><h2 className="text-xl font-semibold sm:text-2xl">{e.company}</h2><p className="text-muted-foreground">{e.role}</p></div></div>
                 {e.note && <p className="mt-2 text-xs text-muted-foreground">{e.note}</p>}
                 <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
                   {e.points.map((p) => <li key={p} className="flex gap-2"><span className="text-primary">—</span>{p}</li>)}
