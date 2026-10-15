@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { portfolioCategories, projects } from "@/lib/content";
 import { PageHeader, Section, EmptyState, meta } from "@/components/site/Layout";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => meta("Portofolio — Rakhmadi Rahman", "Proyek terverifikasi Rakhmadi Rahman di bidang desain grafis, branding, video, dan pengembangan web."),
@@ -15,12 +16,12 @@ function Portfolio() {
   const list = projects.filter((p) => (cat === "Semua" || p.category === cat) && p.title.toLowerCase().includes(q.toLowerCase()));
   return (
     <>
-      <PageHeader eyebrow="Portofolio" title="Karya terpilih." intro="Hanya proyek yang telah diverifikasi yang ditampilkan di sini." />
+      <PageHeader eyebrow="Portofolio" title="Karya terpilih." intro="Proyek dan kontribusi yang tercantum dalam CV akademik. Dokumentasi visual dan rincian hasil belum dilampirkan." />
       <Section>
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex gap-2 overflow-x-auto pb-1">
             {["Semua", ...portfolioCategories].map((c) => (
-              <button key={c} onClick={() => setCat(c)} className={`shrink-0 rounded-full border px-4 py-2 text-sm transition-colors ${cat === c ? "bg-primary text-primary-foreground" : "hover:bg-secondary"}`}>{c}</button>
+              <Button key={c} variant={cat === c ? "default" : "outline"} aria-pressed={cat === c} onClick={() => setCat(c)} className="shrink-0 rounded-full">{c}</Button>
             ))}
           </div>
           <label className="flex items-center gap-2 rounded-full border px-4 py-2 md:w-64">
@@ -29,7 +30,7 @@ function Portfolio() {
           </label>
         </div>
         {list.length === 0 ? (
-          <EmptyState title="Proyek sedang dikurasi" text="Karya-karya di situs lama merupakan konten contoh, sehingga tidak ditampilkan. Proyek nyata akan segera ditambahkan setelah diverifikasi." />
+          <EmptyState title="Tidak ada proyek yang cocok" text="Belum ada proyek pada kategori atau kata pencarian ini." />
         ) : (
           <div className="grid gap-4 md:grid-cols-3">
             {list.map((p) => (

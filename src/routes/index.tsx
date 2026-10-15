@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, GraduationCap, Palette, Code2, Users, Trophy } from "lucide-react";
-import portrait from "@/assets/portrait.png.asset.json";
+import portrait from "@/assets/portrait-updated.png.asset.json";
 import { profile, education, experience, skillGroups, awards } from "@/lib/content";
 import { Section, meta } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/")({
-  head: () => meta("Rakhmadi Rahman, S.T., M.Kom. — IT Professional & Creative Designer", "Portofolio Rakhmadi Rahman: teknologi informasi, desain kreatif, pengembangan web, dan pembelajaran & pengembangan SDM."),
+  head: () => meta("Rakhmadi Rahman, S.T., M.Kom. — Dosen & Peneliti Keamanan Siber", "Profil Rakhmadi Rahman: dosen Sistem Informasi di ITH, riset keamanan siber, pengembangan aplikasi, dan desain kreatif."),
   component: Home,
 });
 
@@ -30,14 +30,14 @@ function Home() {
             </h1>
             <div className="reveal mt-6 flex items-center gap-3 text-sm text-muted-foreground" style={{ animationDelay: "200ms" }}>
               <span className="h-px w-8 bg-primary" />
-              <span className="relative inline-block h-6 overflow-hidden font-display text-base text-foreground">
+               <span className="relative inline-block h-6 min-w-0 overflow-hidden font-display text-sm text-foreground sm:text-base">
                 <span className="role-cycle flex flex-col">
                   {profile.roles.map((r) => <span key={r} className="h-6 leading-6">{r}</span>)}
                 </span>
               </span>
             </div>
             <p className="reveal mt-6 max-w-xl text-muted-foreground" style={{ animationDelay: "300ms" }}>
-              Saya adalah profesional di bidang teknologi informasi dan desain kreatif dengan latar belakang akademik Informatika dan Sistem Informasi Bisnis.
+               Saya adalah dosen Sistem Informasi di Institut Teknologi Bacharuddin Jusuf Habibie dan peneliti keamanan siber, dengan pengalaman di bidang teknologi informasi, desain kreatif, serta pembelajaran dan pengembangan SDM.
             </p>
             <div className="reveal mt-8 flex flex-wrap gap-3" style={{ animationDelay: "400ms" }}>
               <Link to="/portfolio" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5">Jelajahi Portofolio <ArrowRight className="h-4 w-4" /></Link>
@@ -49,7 +49,7 @@ function Home() {
             <div className="absolute -inset-3 rounded-[2rem] border border-dashed" />
             <div className="mask-reveal relative aspect-[4/5] overflow-hidden rounded-[1.75rem] rounded-tr-[6rem] border bg-elevated" style={{ animationDelay: "250ms" }}>
               <div className="absolute inset-0 grid-bg" />
-              <img src={portrait.url} alt="Potret Rakhmadi Rahman" className="absolute bottom-0 left-1/2 h-[95%] w-auto max-w-none -translate-x-1/2 object-contain" />
+               <img src={portrait.url} alt="Potret Rakhmadi Rahman" className="absolute inset-0 h-full w-full object-cover object-top" />
             </div>
             <div className="reveal absolute -bottom-5 -left-4 rounded-2xl border bg-card px-4 py-3 shadow-xl" style={{ animationDelay: "700ms" }}>
               <p className="font-display text-2xl font-bold">3×</p>

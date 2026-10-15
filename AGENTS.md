@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep public profile, research, publication, and project records in the shared content module so all pages present consistent source-backed information.
+- Store uploaded photos and downloadable CVs as CDN asset pointers; preserve historical documents separately so newer sources do not erase provenance.

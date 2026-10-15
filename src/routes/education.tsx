@@ -25,6 +25,7 @@ function Education() {
                 <h2 className="mt-4 text-2xl font-semibold">{e.degree} — {e.program}</h2>
                 <p className="mt-1 text-muted-foreground">{e.institution}</p>
                 <p className="mt-4 text-sm">IPK <span className="font-display font-semibold">{e.gpa}</span></p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{e.detail}</p>
               </div>
             </li>
           ))}
