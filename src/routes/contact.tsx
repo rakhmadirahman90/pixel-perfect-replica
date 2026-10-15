@@ -20,7 +20,7 @@ function Contact() {
   };
   return (
     <>
-      <PageHeader eyebrow="Kontak" title={<>Mari <span className="font-serif font-normal italic text-primary">berkolaborasi</span>.</>} intro="Ceritakan ide, proyek, atau peluang kolaborasi Anda." />
+      <PageHeader eyebrow="Kontak" title={<>Bangun <span className="font-serif font-normal italic text-primary">kolaborasi</span>.</>} intro="Hubungi saya untuk diskusi proyek, kerja sama profesional, dan peluang kolaborasi di bidang teknologi serta industri kreatif." />
       <Section>
         <div className="grid gap-10 md:grid-cols-[1fr_1.4fr]">
           <div className="space-y-4">
