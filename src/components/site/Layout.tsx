@@ -53,6 +53,7 @@ export function Navbar() {
   }, [open]);
   const close = () => { setOpen(false); setExpanded(null); };
   return (
+    <>
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-2xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
         <Monogram />
@@ -78,6 +79,8 @@ export function Navbar() {
           </button>
         </div>
       </div>
+    </header>
+      {/* Fixed navigation must be outside sticky/backdrop-filter header so bottom:0 is relative to viewport. */}
       {/* Native-app-inspired bottom navigation, available on mobile and tablet. */}
       <nav aria-label="Navigasi cepat seluler" className="fixed inset-x-0 bottom-0 z-[70] border-t border-primary/15 bg-background/95 px-3 pb-[max(0.4rem,env(safe-area-inset-bottom))] pt-2 shadow-[0_-12px_40px_-22px_rgba(0,0,0,.45)] backdrop-blur-2xl lg:hidden">
         <div className="mx-auto grid max-w-lg grid-cols-5 gap-1">
@@ -130,7 +133,7 @@ export function Navbar() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
 
