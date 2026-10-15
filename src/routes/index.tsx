@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, GraduationCap, Palette, Code2, Users, Trophy 
 // Lovable-hosted portrait: use absolute URL because /__l5e assets are not served by Vercel.
 const portraitUrl = "https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lovable.app/__l5e/assets-v1/b89d55e3-b936-45cf-9fe9-a6cfae10c21f/rakhmadi-portrait-updated.png";
 import { profile, education, experience, skillGroups, awards } from "@/lib/content";
-import { Section, meta } from "@/components/site/Layout";
+import { BatikAccent, Section, meta } from "@/components/site/Layout";
 import { InstitutionLogo, SkillLogo } from "@/components/site/BrandLogos";
 import { ProjectVisual } from "@/components/site/VisualCards";
 import { projects } from "@/lib/content";
@@ -23,9 +23,10 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[calc(100svh-4rem)] overflow-hidden grid-bg">
+      <section className="relative isolate min-h-[calc(100svh-4rem)] overflow-hidden grid-bg">
+        <BatikAccent className="right-0 top-0 z-0 h-full w-[min(40vw,400px)] max-sm:w-[46vw]" />
         <div className="glow pointer-events-none absolute -right-40 top-10 h-[36rem] w-[36rem]" />
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:px-6 md:grid-cols-[1.15fr_1fr] md:gap-14 md:pt-20">
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-5 pb-16 pt-10 sm:px-6 md:grid-cols-[1.15fr_1fr] md:gap-14 md:pt-20">
           <div>
             <p className="eyebrow reveal">RAKHMADI RAHMAN · PORTOFOLIO PROFESIONAL</p>
             <h1 className="reveal mt-5 text-[clamp(2.3rem,8vw,4.5rem)] font-bold leading-[1.07] tracking-tight lg:text-7xl" style={{ animationDelay: "100ms" }}>
