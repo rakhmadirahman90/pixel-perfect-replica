@@ -13,7 +13,7 @@ function Awards() {
     <>
       <PageHeader eyebrow="Achievements / Prestasi" title={<>Prestasi dan <span className="font-serif font-normal italic text-primary">rekam kontribusi.</span></>} intro="Penghargaan, capaian akademik, karya terdaftar, dan kontribusi ilmiah—dikelompokkan menurut jenisnya agar informatif dan akurat." />
       <Section>
-        <div className="mb-8 grid gap-3 sm:grid-cols-3">
+        <div className="mb-4 grid gap-2 sm:grid-cols-3">
           <div className="rounded-2xl border bg-card p-5"><Trophy className="h-5 w-5 text-primary"/><p className="mt-3 text-3xl font-bold">{awards.length}</p><p className="mt-1 text-xs text-muted-foreground">Penghargaan tercatat</p></div>
           <div className="rounded-2xl border bg-card p-5"><FileBadge className="h-5 w-5 text-primary"/><p className="mt-3 text-3xl font-bold">{intellectualProperty.length}</p><p className="mt-1 text-xs text-muted-foreground">Pencatatan hak cipta</p></div>
           <div className="rounded-2xl border bg-card p-5"><BookOpen className="h-5 w-5 text-primary"/><p className="mt-3 text-3xl font-bold">{publications.length}</p><p className="mt-1 text-xs text-muted-foreground">Publikasi dalam portofolio</p></div>
@@ -26,7 +26,7 @@ function Awards() {
             <Trophy className="hidden h-5 w-5 shrink-0 text-primary/70 sm:block"/>
           </article>)}
         </div>
-        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">Penghargaan ditampilkan sesuai data riwayat yang tersedia; dokumen bukti penghargaan belum dilampirkan pada setiap entri.</p>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">Penghargaan ditampilkan sesuai data riwayat yang tersedia; dokumen bukti penghargaan belum dilampirkan pada setiap entri.</p>
       </Section>
       <Section eyebrow="Kekayaan Intelektual" title="Karya dengan pencatatan hak cipta.">
         <p className="mb-5 text-sm leading-relaxed text-muted-foreground">Daftar pencatatan dari biodata akademik; tahun yang memerlukan penyesuaian sumber tetap ditampilkan sebagaimana tercatat.</p>
