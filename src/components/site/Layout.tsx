@@ -6,7 +6,7 @@ import { profile } from "@/lib/content";
 export function Monogram() {
   return (
     <Link to="/" className="group flex items-baseline font-display text-xl font-bold tracking-tight" aria-label="Rakhmadi Rahman — beranda">
-      RR<span className="text-primary transition-transform group-hover:translate-x-0.5">.</span>
+      <img src="https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lovable.app/__l5e/assets-v1/b89d55e3-b936-45cf-9fe9-a6cfae10c21f/rakhmadi-portrait-updated.png" alt="Foto Rakhmadi Rahman" className="h-10 w-10 rounded-full border-2 border-primary/40 bg-muted object-cover object-top shadow-sm transition-transform group-hover:scale-105" loading="eager" decoding="async" />
     </Link>
   );
 }
