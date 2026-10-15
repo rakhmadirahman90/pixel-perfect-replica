@@ -25,7 +25,7 @@ function Awards() {
         </div>
       </Section>
       <Section eyebrow="Hak Cipta" title="Karya dan kekayaan intelektual.">
-        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">Daftar karya dengan nomor pencatatan hak cipta sebagaimana tercantum dalam biodata akademik.</p>
+        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">Karya dan nomor pencatatan hak cipta berdasarkan CV akademik.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {intellectualProperty.map((item) => <article key={item.registration} className="rounded-2xl border bg-card p-5 sm:p-6">
             <p className="text-xs font-semibold tracking-wide text-primary">HAK CIPTA · {item.year}</p>
