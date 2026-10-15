@@ -156,10 +156,42 @@ export function Footer() {
   );
 }
 
+/** Visible vector Kawung-inspired ornament; decorative only, never covers content. */
+export function BatikAccent({ className = "" }: { className?: string }) {
+  return (
+    <div aria-hidden="true" className={`batik-ornament pointer-events-none absolute overflow-hidden ${className}`}>
+      <svg className="h-full w-full" viewBox="0 0 240 320" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="batik-kawung-tile" width="80" height="80" patternUnits="userSpaceOnUse">
+            <g stroke="currentColor" strokeWidth="1.65" opacity=".88">
+              <ellipse cx="40" cy="20" rx="13" ry="19"/>
+              <ellipse cx="40" cy="60" rx="13" ry="19"/>
+              <ellipse cx="20" cy="40" rx="19" ry="13"/>
+              <ellipse cx="60" cy="40" rx="19" ry="13"/>
+              <path d="M40 32 L48 40 L40 48 L32 40 Z"/>
+              <circle cx="40" cy="40" r="3.5"/>
+            </g>
+            <circle cx="0" cy="0" r="2" fill="currentColor" opacity=".65"/>
+            <circle cx="80" cy="80" r="2" fill="currentColor" opacity=".65"/>
+          </pattern>
+          <linearGradient id="batik-kawung-fade" x1="0" x2="1">
+            <stop offset="0" stopColor="white" stopOpacity="0"/>
+            <stop offset=".32" stopColor="white" stopOpacity=".8"/>
+            <stop offset="1" stopColor="white"/>
+          </linearGradient>
+          <mask id="batik-kawung-mask"><rect width="240" height="320" fill="url(#batik-kawung-fade)"/></mask>
+        </defs>
+        <rect width="240" height="320" fill="url(#batik-kawung-tile)" mask="url(#batik-kawung-mask)"/>
+      </svg>
+    </div>
+  );
+}
+
 export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: ReactNode; intro?: string }) {
   return (
-    <section className="relative overflow-hidden border-b grid-bg">
-      <div className="mx-auto max-w-6xl px-5 pb-14 pt-12 sm:px-6 md:pb-20 md:pt-24">
+    <section className="relative isolate overflow-hidden border-b grid-bg">
+      <BatikAccent className="right-0 top-0 z-0 h-full w-[min(36vw,320px)] max-sm:w-[42vw]" />
+      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-14 pt-12 sm:px-6 md:pb-20 md:pt-24">
         <p className="eyebrow reveal">{eyebrow}</p>
         <h1 className="reveal mt-4 max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl" style={{ animationDelay: "80ms" }}>{title}</h1>
         {intro && <p className="reveal mt-5 max-w-2xl text-muted-foreground md:text-lg" style={{ animationDelay: "160ms" }}>{intro}</p>}
