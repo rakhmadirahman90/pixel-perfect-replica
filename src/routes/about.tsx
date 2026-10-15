@@ -72,15 +72,9 @@ function About() {
               <Link to="/education" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">Lihat detail pendidikan <ArrowUpRight className="h-4 w-4"/></Link>
             </section>
             <section className="rounded-[1.75rem] border bg-card p-5 sm:p-7">
-              <div className="flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-primary"/><h2 className="text-xl font-bold">Keahlian & Arah Riset</h2></div>
-              <p className="mt-4 text-sm leading-7 text-muted-foreground">{bio[2]}</p>
-              <p className="mt-3 text-sm leading-7 text-muted-foreground">{research.direction}</p>
-              <div className="mt-5 flex flex-wrap gap-2">{research.interests.map(item => <span key={item} className="rounded-lg border bg-background px-3 py-2 text-xs leading-relaxed">{item}</span>)}</div>
-              <Link to="/skills" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">Jelajahi keahlian <ArrowUpRight className="h-4 w-4"/></Link>
-            </section>
-            <section className="rounded-[1.75rem] border bg-card p-5 sm:p-7">
-              <div className="flex items-center gap-2"><UsersRound className="h-5 w-5 text-primary"/><h2 className="text-xl font-bold">Pengalaman Organisasi</h2></div>
-              <div className="mt-4 space-y-3">{organizations.map(o => <div key={o.name} className="rounded-xl border bg-background p-4"><p className="text-sm font-semibold">{o.name}</p><p className="mt-1 text-xs text-muted-foreground">{o.note}</p></div>)}</div>
+              <h2 className="text-xl font-bold">Eksplorasi Lebih Lanjut</h2>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">Keahlian teknis, publikasi ilmiah, dan riwayat organisasi disajikan pada halaman khusus agar profil tetap ringkas.</p>
+              <div className="mt-5 flex flex-wrap gap-3"><Link to="/skills" className="text-sm font-semibold text-primary hover:underline">Keahlian →</Link><Link to="/articles" className="text-sm font-semibold text-primary hover:underline">Publikasi →</Link><Link to="/awards" className="text-sm font-semibold text-primary hover:underline">Prestasi →</Link></div>
             </section>
             <section className="rounded-2xl border border-primary/15 bg-primary/5 p-5 sm:p-6">
               <p className="text-xs font-bold uppercase tracking-wider text-primary">Sumber & Dokumen</p>
