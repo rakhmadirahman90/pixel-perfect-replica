@@ -3,14 +3,14 @@ import { Code2, Globe2, Palette, ShieldCheck, Wrench } from "lucide-react";
 
 /** Show only recognizable brand marks; unknown/legacy schools use a clear typographic emblem, never a generic globe favicon. */
 const institutions: Record<string, { domain?: string; logo?: string; mark: string; short: string }> = {
-  "Institut Teknologi Bacharuddin Jusuf Habibie": { domain: "ith.ac.id", mark: "ITH", short: "ITH" },
+  "Institut Teknologi Bacharuddin Jusuf Habibie": { logo: "https://ith.ac.id/wp-content/uploads/2022/06/cropped-logo-ith.png", domain: "ith.ac.id", mark: "ITH", short: "ITH" },
   "BAZNAS Kota Parepare": { domain: "baznas.go.id", mark: "BAZ", short: "BAZNAS" },
   "Kedaireka — Riset Kolaboratif": { mark: "KR", short: "Kedaireka" },
   "Kementerian Komunikasi dan Informatika (Kemkominfo)": { domain: "komdigi.go.id", mark: "KOM", short: "Kominfo" },
-  "PT Pos Indonesia (Persero)": { domain: "posindonesia.co.id", mark: "POS", short: "Pos Indonesia" },
-  "Binus Center Bandung": { domain: "binus.ac.id", mark: "BIN", short: "BINUS" },
-  "PT Astra Daihatsu Motor": { domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
-  "PT Elnusa Petrofin": { domain: "elnusa.co.id", mark: "EP", short: "Elnusa" },
+  "PT Pos Indonesia (Persero)": { logo: "https://commons.wikimedia.org/wiki/Special:Redirect/file/POSIND_2023.svg", domain: "posindonesia.co.id", mark: "POS", short: "Pos Indonesia" },
+  "Binus Center Bandung": { logo: "https://api.iconify.design/simple-icons/binus.svg?color=%23005b9f", domain: "binus.ac.id", mark: "BIN", short: "BINUS" },
+  "PT Astra Daihatsu Motor": { logo: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Daihatsu_symbol.svg", domain: "daihatsu.co.id", mark: "ADM", short: "Daihatsu" },
+  "PT Elnusa Petrofin": { logo: "https://www.elnusapetrofin.co.id/favicon.ico", domain: "elnusapetrofin.co.id", mark: "EP", short: "Elnusa Petrofin" },
   "Sekolah Tinggi Manajemen dan Komputer LIKMI, Bandung": { logo: "/logos/likmi.svg", mark: "LIKMI", short: "STMIK LIKMI" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia, Bandung": { logo: "/logos/st-inten-falatehan.svg", mark: "ST-INTEN", short: "ST-INTEN" },
   "Sekolah Tinggi Sains dan Teknologi Indonesia": { domain: "inten.ac.id", mark: "INTEN", short: "ST-INTEN" },
