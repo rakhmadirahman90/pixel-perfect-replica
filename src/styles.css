@@ -230,3 +230,95 @@
   body { padding-bottom: calc(5.2rem + env(safe-area-inset-bottom)); }
   footer { margin-bottom: 0; }
 }
+
+
+/* Contemporary batik Kawung-inspired geometry: decorative, restrained and
+   theme-aware. A vector pattern is used rather than a heavy bitmap asset. */
+:root {
+  --batik-ink: oklch(0.45 0.13 254 / 17%);
+  --batik-ink-soft: oklch(0.45 0.13 254 / 9%);
+}
+.dark {
+  --batik-ink: oklch(0.78 0.13 214 / 20%);
+  --batik-ink-soft: oklch(0.78 0.13 214 / 10%);
+}
+@utility batik-kawung {
+  background-image:
+    radial-gradient(ellipse 15px 28px at 50% 21%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(ellipse 15px 28px at 50% 79%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(ellipse 28px 15px at 21% 50%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(ellipse 28px 15px at 79% 50%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(circle at 50% 50%, var(--batik-ink-soft) 0 3px, transparent 4px);
+  background-size: 88px 88px;
+  background-repeat: repeat;
+}
+/* Hero/Page headers receive a decorative side panel, not a text overlay. */
+main > section:first-child {
+  isolation: isolate;
+}
+main > section:first-child::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(36vw, 420px);
+  opacity: .75;
+  background-image:
+    radial-gradient(ellipse 15px 28px at 50% 21%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(ellipse 15px 28px at 50% 79%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(ellipse 28px 15px at 21% 50%, var(--batik-ink) 0 1.3px, transparent 2px),
+    radial-gradient(ellipse 28px 15px at 79% 50%, var(--batik-ink) 0 1.3px, transparent 2px),
+    linear-gradient(90deg, var(--color-background), transparent 70%);
+  background-size: 88px 88px, 88px 88px, 88px 88px, 88px 88px, 100% 100%;
+  mask-image: linear-gradient(to right, transparent, black 60%);
+}
+/* Small decorative band above the footer anchors the motif across all routes. */
+footer {
+  position: relative;
+  isolation: isolate;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0 0 auto;
+  height: 24px;
+  opacity: .65;
+  background-image:
+    radial-gradient(ellipse 10px 19px at 50% 20%, var(--batik-ink) 0 1px, transparent 1.7px),
+    radial-gradient(ellipse 10px 19px at 50% 80%, var(--batik-ink) 0 1px, transparent 1.7px),
+    radial-gradient(ellipse 19px 10px at 20% 50%, var(--batik-ink) 0 1px, transparent 1.7px),
+    radial-gradient(ellipse 19px 10px at 80% 50%, var(--batik-ink) 0 1px, transparent 1.7px);
+  background-size: 56px 56px;
+}
+/* A small signature detail on cards, avoiding image and text areas. */
+main article.rounded-2xl.border.bg-card {
+  position: relative;
+}
+main article.rounded-2xl.border.bg-card::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  right: 12px;
+  bottom: 12px;
+  width: 36px;
+  height: 36px;
+  opacity: .45;
+  background-image:
+    radial-gradient(ellipse 7px 13px at 50% 23%, var(--batik-ink) 0 1px, transparent 1.7px),
+    radial-gradient(ellipse 7px 13px at 50% 77%, var(--batik-ink) 0 1px, transparent 1.7px),
+    radial-gradient(ellipse 13px 7px at 23% 50%, var(--batik-ink) 0 1px, transparent 1.7px),
+    radial-gradient(ellipse 13px 7px at 77% 50%, var(--batik-ink) 0 1px, transparent 1.7px);
+  background-size: 36px 36px;
+}
+@media (max-width: 639px) {
+  main > section:first-child::before {
+    width: 44vw;
+    opacity: .45;
+    background-size: 72px 72px, 72px 72px, 72px 72px, 72px 72px, 100% 100%;
+  }
+  main article.rounded-2xl.border.bg-card::after { opacity: .25; }
+}
