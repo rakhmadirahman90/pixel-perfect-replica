@@ -26,9 +26,12 @@ jobs:
       - name: Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '24'
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: |
+          npm --version
+          npm install --no-audit --no-fund --legacy-peer-deps --install-strategy=hoisted
+          npm ls --depth=0 || true
       - name: Build static pages
         env:
           GITHUB_PAGES_BUILD: 'true'
