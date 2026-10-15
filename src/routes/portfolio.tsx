@@ -30,18 +30,18 @@ function Portfolio() {
     <>
       <PageHeader eyebrow="Selected Works / Portfolio" title={<>Karya yang memadukan <span className="font-serif font-normal italic text-primary">ide dan dampak.</span></>} intro="Proyek aplikasi, media digital, riset, dan pengabdian masyarakat." />
       <Section>
-        <div className="mb-8 grid gap-3 sm:grid-cols-3">
+        <div className="mb-4 grid gap-2 sm:grid-cols-3">
           <div className="rounded-2xl border bg-card p-5"><Layers3 className="h-5 w-5 text-primary"/><p className="mt-4 text-3xl font-bold tabular-nums">{projects.length}</p><p className="mt-1 text-xs text-muted-foreground">Proyek terdokumentasi</p></div>
           <div className="rounded-2xl border bg-card p-5"><BriefcaseBusiness className="h-5 w-5 text-primary"/><p className="mt-4 text-3xl font-bold tabular-nums">{portfolioCategories.length}</p><p className="mt-1 text-xs text-muted-foreground">Bidang kontribusi</p></div>
           <div className="rounded-2xl border bg-card p-5"><BookOpen className="h-5 w-5 text-primary"/><p className="mt-4 text-lg font-bold">Riset & Digital</p><p className="mt-1 text-xs text-muted-foreground">Fokus karya terapan</p></div>
         </div>
-        {featured && <div className="group mb-9 overflow-hidden rounded-[1.75rem] border border-primary/20 bg-card shadow-sm lg:grid lg:grid-cols-[1.05fr_1fr]">
+        {featured && <div className="group mb-4 overflow-hidden rounded-[1.75rem] border border-primary/20 bg-card shadow-sm lg:grid lg:grid-cols-[1.05fr_1fr]">
           <ProjectVisual slug={featured.slug} title={featured.title} className="!aspect-[16/10] lg:!aspect-auto lg:min-h-[300px]" />
           <div className="flex flex-col justify-center p-6 sm:p-8">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"><Sparkles className="h-3.5 w-3.5"/> Sorotan Proyek</span>
-            <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{categoryNames[featured.category] ?? featured.category} · {featured.year}</p>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{categoryNames[featured.category] ?? featured.category} · {featured.year}</p>
             <h2 className="mt-3 text-2xl font-bold leading-snug sm:text-3xl">{featured.title}</h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">{featured.summary}</p>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">{featured.summary}</p>
             <p className="mt-5 inline-flex items-center gap-2 text-xs text-primary"><CheckCircle2 className="h-4 w-4"/> Kontribusi sesuai riwayat portofolio</p>
           </div>
         </div>}
@@ -58,7 +58,7 @@ function Portfolio() {
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {list.map((p,i)=>{const Icon=categoryIcons[p.category]??Layers3;return <article key={p.slug} className="group flex h-full flex-col overflow-hidden rounded-[1.5rem] border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
               <div className="relative"><ProjectVisual slug={p.slug} title={p.title}/><span className="absolute right-3 top-3 rounded-full border border-white/20 bg-background/90 px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur">{p.year}</span></div>
-              <div className="flex flex-1 flex-col p-5 sm:p-6"><div className="flex items-center gap-2 text-xs font-semibold text-primary"><Icon className="h-4 w-4"/>{categoryNames[p.category]??p.category}</div><h3 className="mt-3 text-lg font-bold leading-snug">{p.title}</h3><p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{p.summary}</p><div className="mt-5 flex items-center justify-between border-t pt-4 text-xs text-muted-foreground"><span>Proyek {String(i+1).padStart(2,"0")}</span><span className="inline-flex items-center gap-1 font-medium text-primary">Portofolio <ArrowUpRight className="h-4 w-4"/></span></div></div>
+              <div className="flex flex-1 flex-col p-5 sm:p-6"><div className="flex items-center gap-2 text-xs font-semibold text-primary"><Icon className="h-4 w-4"/>{categoryNames[p.category]??p.category}</div><h3 className="mt-3 text-lg font-bold leading-snug">{p.title}</h3><p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">{p.summary}</p><div className="mt-3 flex items-center justify-between border-t pt-4 text-xs text-muted-foreground"><span>Proyek {String(i+1).padStart(2,"0")}</span><span className="inline-flex items-center gap-1 font-medium text-primary">Portofolio <ArrowUpRight className="h-4 w-4"/></span></div></div>
             </article>})}
           </div>}
       </Section>
