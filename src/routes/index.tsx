@@ -73,7 +73,7 @@ function Home() {
       <Section eyebrow="Keahlian Utama" title="Tiga disiplin, satu pendekatan.">
         <div className="grid gap-4 md:grid-cols-3">
           {expertise.map(({ icon: Icon, title, text }, i) => (
-            <div key={title} className="group rounded-2xl border bg-card p-7 transition-all hover:-translate-y-1 hover:border-primary/40">
+            <div key={title} className="group rounded-2xl border bg-card p-5 sm:p-7 transition-all hover:-translate-y-1 hover:border-primary/40">
               <div className="flex items-center justify-between">
                 <Icon className="h-6 w-6 text-primary" />
                 <span className="font-display text-sm text-muted-foreground">0{i + 1}</span>
@@ -92,9 +92,9 @@ function Home() {
             <div className="flex items-center gap-2 text-sm text-muted-foreground"><GraduationCap className="h-4 w-4 text-primary" /> Pendidikan</div>
             <ul className="mt-6 space-y-6">
               {education.map((e) => (
-                <li key={e.year} className="grid grid-cols-[3.5rem_1fr] gap-3">
+                <li key={e.year} className="grid grid-cols-[3rem_minmax(0,1fr)] items-start gap-2 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-3">
                   <span className="font-display text-primary">{e.year}</span>
-                  <div className="flex min-w-0 items-start gap-3"><InstitutionLogo name={e.institution} size="sm" /><div><p className="font-semibold">{e.degree} · {e.program}</p><p className="text-sm text-muted-foreground">{e.institution} — IPK {e.gpa}, {e.distinction}</p></div></div>
+                  <div className="flex min-w-0 items-start gap-2.5 sm:gap-3"><InstitutionLogo name={e.institution} size="sm" /><div className="min-w-0"><p className="font-semibold leading-snug">{e.degree} · {e.program}</p><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{e.institution} — IPK {e.gpa}, {e.distinction}</p></div></div>
                 </li>
               ))}
             </ul>
