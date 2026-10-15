@@ -5,6 +5,8 @@ const portraitUrl = "https://id-preview--d44e39c6-b854-4b9d-b253-6f4221a6890f.lo
 import { profile, education, experience, skillGroups, awards } from "@/lib/content";
 import { Section, meta } from "@/components/site/Layout";
 import { InstitutionLogo, SkillLogo } from "@/components/site/BrandLogos";
+import { ProjectVisual } from "@/components/site/VisualCards";
+import { projects } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => meta("Rakhmadi Rahman, S.T., M.Kom. — Dosen & Peneliti Keamanan Siber", "Profil Rakhmadi Rahman: dosen Sistem Informasi di ITH, riset keamanan siber, pengembangan aplikasi, dan desain kreatif."),
@@ -83,6 +85,17 @@ function Home() {
             </div>
           ))}
         </div>
+      </Section>
+
+      {/* Selected visual work */}
+      <Section eyebrow="Featured Work" title="Proyek & kontribusi pilihan." action={<Link to="/portfolio" className="text-sm text-primary">Lihat semua proyek →</Link>}>
+        <div className="grid gap-5 md:grid-cols-3">
+          {projects.slice(0, 3).map(p => <Link key={p.slug} to="/portfolio" className="group overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
+            <ProjectVisual slug={p.slug} title={p.title} />
+            <div className="p-5"><p className="text-xs font-semibold text-primary">{p.category} · {p.year}</p><h3 className="mt-2 text-lg font-semibold leading-snug">{p.title}</h3><p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{p.summary}</p></div>
+          </Link>)}
+        </div>
+        <p className="mt-4 text-xs text-muted-foreground">Visual proyek adalah ilustrasi konseptual, bukan dokumentasi proyek asli.</p>
       </Section>
 
       {/* Education + Career */}
